@@ -18,6 +18,7 @@ Desde la raíz del repositorio:
 cd pos\backend
 dotnet restore
 dotnet build
+dotnet test
 ```
 
 ## Frontend
@@ -28,4 +29,7 @@ Desde la raíz del repositorio:
 cd pos\frontend\pos-web
 npm install
 npm run build
+npm test
 ```
+
+`dotnet restore` y `npm install` restauran también las dependencias declaradas para testing.

@@ -35,6 +35,8 @@ Frontend:
 
 Actualmente sólo existen `Pos.Api` y `pos-web`. No se han creado capas adicionales, persistencia ni integraciones.
 
+El quality baseline está implementado mediante un proyecto de tests de API y pruebas de componentes del frontend. Testing no constituye una capa arquitectónica.
+
 ## DECISIÓN FUTURA
 
 Arquitectura objetivo aprobada, todavía no implementada:

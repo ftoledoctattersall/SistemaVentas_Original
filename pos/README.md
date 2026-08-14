@@ -10,7 +10,7 @@ El sistema legado existe sólo como referencia funcional, evidencia, apoyo de au
 
 ## Estado
 
-FASE 0B — Baseline Git y documentación operativa
+FASE 0C — Quality baseline y gobierno técnico
 
 ## Stack inicial
 

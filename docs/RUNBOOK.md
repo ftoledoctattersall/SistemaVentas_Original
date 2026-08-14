@@ -51,3 +51,21 @@ Para detener cualquiera de los procesos, presionar `Ctrl+C` en su terminal.
 ## PowerShell y npm
 
 Si PowerShell bloquea el wrapper `npm.ps1`, la alternativa validada es ejecutar `npm.cmd`. No es necesario deshabilitar las políticas de seguridad de PowerShell.
+
+## Validación rápida
+
+Backend:
+
+```powershell
+cd pos\backend
+dotnet build
+dotnet test
+```
+
+Frontend:
+
+```powershell
+cd pos\frontend\pos-web
+npm run build
+npm test
+```

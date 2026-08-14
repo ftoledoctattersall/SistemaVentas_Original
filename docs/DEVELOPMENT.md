@@ -25,6 +25,7 @@ Backend:
 cd pos\backend
 dotnet restore
 dotnet build
+dotnet test
 ```
 
 Frontend:
@@ -33,13 +34,32 @@ Frontend:
 cd pos\frontend\pos-web
 npm install
 npm run build
+npm test
 ```
 
-El resultado mínimo aceptable es `0 errores`.
+El resultado mínimo aceptable es build y tests en PASS, con `0 errores` y `0 advertencias` en los proyectos .NET nuevos. Los warnings se tratan como errores exclusivamente en `Pos.Api` y `Pos.Api.Tests`; esta decisión no afecta al legado.
+
+No se exige ejecutar ambos stacks cuando una fase afecta exclusivamente uno, salvo que exista una razón explícita.
+
+## Criterio de PASS para fases de implementación
+
+Una fase sólo puede considerarse PASS cuando:
+
+1. el scope autorizado está cumplido;
+2. las `ai-rules` aplicables están identificadas;
+3. el build backend pasa si backend fue afectado;
+4. los tests backend pasan si backend fue afectado;
+5. el build frontend pasa si frontend fue afectado;
+6. los tests frontend pasan si frontend fue afectado;
+7. la documentación está actualizada cuando corresponde;
+8. no se incorporaron secretos;
+9. no existen cambios fuera de scope;
+10. se realizó el commit;
+11. se realizó el push.
 
 ## Documentación viva
 
-> Todo cambio que modifique instalación, configuración, ejecución, arquitectura, dependencias o comportamiento operativo debe actualizar la documentación correspondiente en el mismo lote.
+> Todo cambio que altere instalación, configuración, ejecución, arquitectura, dependencias, testing, quality gates o comportamiento operativo debe actualizar la documentación correspondiente en el mismo lote.
 
 ## Git
 
