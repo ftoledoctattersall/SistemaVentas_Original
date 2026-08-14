@@ -1,0 +1,429 @@
+﻿body
+{
+    background-color: #DDDBC1;
+}
+iframe
+{
+    width:96%;
+  /*height:650px;*/
+    height:1000px;
+    border-color:black;
+    border-style:outset;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
+}
+select
+{
+    /*width:auto;*/
+    font-family:Arial;
+    font-size:small;
+    padding-left:.3em;
+    border-color:#DDDBC1;
+    border-style:outset;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
+}
+input
+{
+    width:111px;
+    font-family:Arial;
+    font-size:small;
+    padding-left:.3em;
+    border-color:#DDDBC1;
+    border-style:outset;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
+}
+textarea {
+    font-family: Arial;
+    font-size: small;
+    padding-left: .3em;
+    border-color: #DDDBC1;
+    border-style: outset;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+tr
+{
+    border-color:darkblue;
+    font-size:small;
+    font-family:Arial;
+    color:black;
+}
+/*thead
+{
+    border-color:darkblue;
+    font-size:x-small;
+    font-family:Arial;
+    font-style:normal;
+    color:black;
+}*/
+p
+{
+    font-style:normal;
+    font-size:small;
+    font-family:Arial;
+    font-weight:bold;
+}
+.tableLogin
+{
+    border-spacing:10px;
+    border-color:green;
+    border-style:outset;
+    border-bottom-style:inset;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
+}
+.trTituloLogin
+{
+    height:30px;
+    color:white;
+    font-size:15px;
+    font-style:italic;
+    text-align:center;
+    background-color:#003300;
+}
+.tdTituloLogin
+{
+    height: 30px;
+    color: white;
+    font-size: 15px;
+    font-style: italic;
+    text-align: center;
+    background-color: #003300;
+}
+.tableMenu
+{
+    width:90%;
+    align-content:center;
+    vertical-align:middle;
+    border:1px;
+    border-width:medium;
+    border-color:green;
+}
+.tablePrincipal
+{
+    width:100%;
+    align-content:center;
+    vertical-align:middle;
+    border-width:medium;
+    border-color:green;
+}
+.tableDetalle
+{
+    width:100%;
+    align-content:center;
+    vertical-align:middle;
+    border-width:medium;
+    border-color:green;
+}
+.trTituloPagina
+{
+    height:12px;
+    color:white;
+    font-size:12px;
+    font-style:normal;
+    text-align:center;
+    font-weight:bold;
+    background-color:#003300;
+}
+.trTituloSeccion
+{
+    height:10px;
+    color:white;
+    font-family:Arial, Lucida Sans Unicode, Lucida Grande, Sans-Serif;
+    font-size:small;
+    font-style:normal;
+    text-align:left;
+    background-color:#003300;
+}
+.trTituloItem
+{
+    height:10px;
+    color:black;
+    font-family:Arial, Lucida Sans Unicode, Lucida Grande, Sans-Serif;
+    font-size:small;
+    font-style:normal;
+}
+.tdTituloItem
+{
+    height: 10px;
+    color: black;
+    font-size: 14px;
+    font-style: normal;
+    text-align: left;
+}
+.trTituloCabecera
+{
+    height:10px;
+    color:white;
+    font-family:Arial, Lucida Sans Unicode, Lucida Grande, Sans-Serif;
+    font-size:small;
+    font-style:normal;
+    background-color:green;
+}
+.trTituloDetalle
+{
+    height:10px;
+    color:black;
+    font-family:Arial, Lucida Sans Unicode, Lucida Grande, Sans-Serif;
+    font-size:small;
+    font-style:normal;
+}
+
+
+.tdRight {
+    text-align: right;
+    vertical-align: central;
+    white-space: nowrap;
+}
+.tdCenter {
+    text-align: center;
+    vertical-align: central;
+    white-space: nowrap;
+}
+.tdLeft {
+    text-align: left;
+    vertical-align: central;
+    white-space: nowrap;
+}
+
+
+.tdRightCortado {
+    text-align: right;
+    vertical-align: central;
+}
+.tdCenterCortado {
+    text-align: center;
+    vertical-align: central;
+}
+.tdLeftCortado {
+    text-align: left;
+    vertical-align: central;
+}
+
+
+.tdRightCortadoCompra {
+    text-align: right;
+    vertical-align: central;
+    background-color: #0000FF;
+}
+
+.tdCenterCortadoCompra {
+    text-align: center;
+    vertical-align: central;
+    background-color: #0000FF;
+}
+
+.tdLeftCortadoCompra {
+    text-align: left;
+    vertical-align: central;
+    background-color: #191970;
+}
+
+
+.textboxLonger
+{
+    width:370px;
+}
+.textboxLongerReadonly {
+    width: 370px;
+    background-color: #DDDBC1;
+    color: black;
+}
+.textboxLong
+{
+    width:250px;
+}
+.textboxLongReadonly {
+    width: 250px;
+    background-color: #DDDBC1;
+    color: black;
+}
+.textboxMedium
+{
+    width:110px;
+}
+.textboxMediumReadonly {
+    width: 110px;
+    background-color: #DDDBC1;
+    color: black;
+}
+.textboxSmall
+{
+    width:90px;
+}
+.textboxSmallReadonly {
+    width: 90px;
+    background-color: #DDDBC1;
+    color: black;
+}
+.textboxSmaller
+{
+    width:50px;
+}
+.textboxSmallerReadonly {
+    width: 50px;
+    background-color: #DDDBC1;
+    color: black;
+}
+
+
+
+.linkResumen
+{
+    background:beige;
+}
+.ocultaObjeto
+{
+    width:1px;
+    visibility:hidden;
+}
+
+
+
+
+
+
+
+
+.table_aut
+{
+    font-family:Lucida Sans Unicode, Lucida Grande, Sans-Serif;
+    font-size:10px;
+    margin-left:0px;
+    margin-top:0px;
+    width:575px;
+    text-align:left;
+    border-collapse:collapse; 
+    border-style:double;
+}       
+.table_aut th
+{
+    font-size:10px;
+    font-weight:normal;
+    padding:4px;
+    background:#5EAE4F;
+    border-top:4px solid #528349;
+    border-bottom:1px solid #fff;
+    color:#FDFDFD;
+}
+.table_aut td
+{
+    padding:8px;
+    background:#EAEAEA;
+    border-bottom:1px solid #fff;
+    color:#11590F;
+    border-top:1px solid transparent;
+}
+.table_aut tr:hover td
+{
+     background:#d0dafd; 
+     color:#339; 
+}
+
+
+/* menu */
+#menu { background-repeat:repeat-x; height:20px; width:100%; margin:7px; padding-left:70px; font-family:Arial;}
+#nav { list-style:none;}
+#nav li { float:left; background-repeat:no-repeat; background-position:left; background-color:green;}
+#nav li a { display:block; padding:3px 5px; text-decoration:none; color:#ffffff; font-weight:normal; font-size:10px; background-color:green;}
+#nav li a:hover { color:#ffffff; background-color:#145a32;}
+/* Submenu */
+#nav ul.submenu { border:1px solid #000000; padding:5px; position:absolute; list-style:none; background-color:green; font-family:Arial; z-index:1; display:none;}
+#nav ul.submenu li { float:none; background-image:none; border-bottom:1px #ffffff; width:222px;}
+/* Subsubmenu */
+#nav ul.subsubmenu { border:1px solid #000000; padding:5px; position:absolute; list-style:none; background-color:green; margin-left:150px; margin-top:-30px;display:none}
+#nav ul.subsubmenu li { float:none; background-image:none; border-bottom:1px solid #999999; min-width:222px;}
+
+
+/*.divCeldaLong11
+{
+    width:200px;
+    font-size: 10px;
+    text-align: left;
+}
+.divCeldaMedium11
+{
+    width: 75px;
+    font-size: 10px;
+    text-align: right;
+}
+
+.divCeldaLong12
+{
+    width:188px;
+    font-size: 10px;
+    text-align: left;
+    align-content:space-around;
+    border-spacing: 1px;
+    background-color: azure;
+}
+.divCeldaMedium12
+{
+    width: 78px;
+    font-size: 10px;
+    text-align: right;
+    align-content:space-around;
+    border-spacing: 1px;
+    background-color: azure;
+}
+
+.divCeldaLong21
+{
+    width:240px;
+    font-size: 10px;
+    text-align: left;
+}
+.divCeldaMedium21
+{
+    width: 190px;
+    font-size: 10px;
+    text-align: right;
+}
+
+.divCeldaLong22
+{
+    width:234px;
+    font-size: 10px;
+    text-align: left;
+    align-content:space-around;
+    border-spacing: 1px;
+    background-color: azure;
+}
+.divCeldaMedium22
+{
+    width: 100px;
+    font-size: 10px;
+    text-align: right;
+    align-content:space-around;
+    border-spacing: 5px;
+    background-color: azure;
+}
+*/
+
+/*
+.izquierda {
+    width:auto;
+    float:left;
+    margin:0;
+}
+.derecha {
+	width:50px;
+	float:right;
+	position:static;
+}
+*/
+
+
+

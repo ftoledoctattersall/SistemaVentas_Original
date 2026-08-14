@@ -1,0 +1,890 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{BE51E984-ACC7-4B9E-8A81-7819EE99E06B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>SistemaVentasWeb</RootNamespace>
+    <AssemblyName>SistemaVentasWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>SistemaVentasWeb.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>SistemaVentasWeb.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Interop.SAPbobsCOM">
+      <HintPath>..\..\..\..\..\..\..\..\Ayuda\obj\Debug\Interop.SAPbobsCOM.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\..\..\..\..\..\Ayuda\obj\Debug\AspnetCompileMerge\Source\bin\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>C:\Windows\Complement\NLog\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\..\..\..\..\..\..\..\Ayuda\obj\Debug\AspnetCompileMerge\Source\bin\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog.Extended">
+      <HintPath>..\..\..\..\..\..\..\..\Ayuda\obj\Debug\AspnetCompileMerge\Source\bin\NLog.Extended.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebServices, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Ayuda\obj\Debug\AspnetCompileMerge\Source\bin\WebServices.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="Newtonsoft" />
+    <Import Include="Newtonsoft.Json" />
+    <Import Include="Newtonsoft.Json.Bson" />
+    <Import Include="Newtonsoft.Json.Converters" />
+    <Import Include="Newtonsoft.Json.Linq" />
+    <Import Include="Newtonsoft.Json.Schema" />
+    <Import Include="Newtonsoft.Json.Serialization" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BootStrap\4.1.3\css\bootstrap-grid.css" />
+    <Content Include="BootStrap\4.1.3\css\bootstrap-grid.min.css" />
+    <Content Include="BootStrap\4.1.3\css\bootstrap-reboot.css" />
+    <Content Include="BootStrap\4.1.3\css\bootstrap-reboot.min.css" />
+    <Content Include="BootStrap\4.1.3\css\bootstrap.css" />
+    <Content Include="BootStrap\4.1.3\css\bootstrap.min.css" />
+    <Content Include="BootStrap\4.1.3\js\bootstrap.bundle.js" />
+    <Content Include="BootStrap\4.1.3\js\bootstrap.bundle.min.js" />
+    <Content Include="BootStrap\4.1.3\js\bootstrap.js" />
+    <Content Include="BootStrap\4.1.3\js\bootstrap.min.js" />
+    <Content Include="Default.aspx" />
+    <Content Include="Images\agrega.png" />
+    <Content Include="Images\anterior.png" />
+    <Content Include="Images\borrar.png" />
+    <Content Include="Images\button_cancel_32x32.png" />
+    <Content Include="Images\button_ok_32x32.png" />
+    <Content Include="Images\button_view_32x32.png" />
+    <Content Include="Images\calcular.jpg" />
+    <Content Include="Images\cancelar.png" />
+    <Content Include="Images\gestion.png" />
+    <Content Include="Images\grabar.gif" />
+    <Content Include="Images\loader.gif" />
+    <Content Include="Images\logo.jpg" />
+    <Content Include="Images\eliminar.gif" />
+    <Content Include="Images\agregar.gif" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\menbrete.jpg" />
+    <Content Include="Images\primera.png" />
+    <Content Include="Images\procesar.png" />
+    <Content Include="Images\salir.jpg" />
+    <Content Include="Images\avanzar.png" />
+    <Content Include="Images\retroceder.png" />
+    <Content Include="Images\siguiente.png" />
+    <Content Include="Images\ultima.png" />
+    <Content Include="Images\visualizar.png" />
+    <Content Include="JQuery\js\jquery-3.3.1.js" />
+    <Content Include="JQuery\js\jquery-3.3.1.min.js" />
+    <Content Include="JQuery\js\jquery.blockUI.js" />
+    <Content Include="JQuery\js\jquery.validate.min.js" />
+    <Content Include="JQuery\js\messages_es.js" />
+    <Content Include="JQuery\js\WebUIValidation.js" />
+    <Content Include="JQuery\ui\AUTHORS.txt" />
+    <Content Include="JQuery\ui\external\jquery\jquery.js" />
+    <Content Include="JQuery\ui\images\ui-icons_444444_256x240.png" />
+    <Content Include="JQuery\ui\images\ui-icons_555555_256x240.png" />
+    <Content Include="JQuery\ui\images\ui-icons_777620_256x240.png" />
+    <Content Include="JQuery\ui\images\ui-icons_777777_256x240.png" />
+    <Content Include="JQuery\ui\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="JQuery\ui\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="JQuery\ui\index.html" />
+    <Content Include="JQuery\ui\jquery-ui.css" />
+    <Content Include="JQuery\ui\jquery-ui.js" />
+    <Content Include="JQuery\ui\jquery-ui.min.css" />
+    <Content Include="JQuery\ui\jquery-ui.min.js" />
+    <Content Include="JQuery\ui\jquery-ui.structure.css" />
+    <Content Include="JQuery\ui\jquery-ui.structure.min.css" />
+    <Content Include="JQuery\ui\jquery-ui.theme.css" />
+    <Content Include="JQuery\ui\jquery-ui.theme.min.css" />
+    <Content Include="JQuery\ui\LICENSE.txt" />
+    <Content Include="Pages\pagAprobarBorrador.aspx" />
+    <Content Include="Pages\pagCancelarBorradorVenta.aspx" />
+    <Content Include="Pages\pagCancelarOrdenVenta.aspx" />
+    <Content Include="Pages\pagCotizacion.aspx" />
+    <Content Include="Pages\pagGenerarOrdenCompra.aspx" />
+    <Content Include="Pages\pagInformeComisionProvisorio.aspx" />
+    <Content Include="Pages\pagInformeCuentaCorriente.aspx" />
+    <Content Include="Pages\pagInformeLiquidacionComision.aspx" />
+    <Content Include="Pages\pagInformeVentaMensual.aspx" />
+    <Content Include="Pages\pagIngresoCuartaCopia.aspx" />
+    <Content Include="Pages\pagListarCliente.aspx" />
+    <Content Include="Pages\pagListarProducto.aspx" />
+    <Content Include="Pages\pagLoginSistema.aspx" />
+    <Content Include="Pages\pagMensajeSistema.aspx" />
+    <Content Include="Pages\pagMenuSistema.aspx" />
+    <Content Include="Pages\pagMonitorAutorizacion.aspx" />
+    <Content Include="Pages\pagMonitorDocumento.aspx" />
+    <Content Include="Pages\pagMuestraBlanco.aspx" />
+    <Content Include="Pages\pagRechazarBorrador.aspx" />
+    <Content Include="Pages\pagVentaBodegaPropia.aspx" />
+    <Content Include="Pages\pagVentaCalzadaPropia.aspx" />
+    <Content Include="Pages\pagVentaCalzadaProveedor.aspx" />
+    <Content Include="Pages\pagVentaConsignada.aspx" />
+    <Content Include="Pages\pagVentaCostoEspecial.aspx" />
+    <Content Include="Pages\pagVentaLiquidacion.aspx" />
+    <Content Include="Pages\pagVentaPuestoFundo.aspx" />
+    <Content Include="Pages\pagVisualizarAutorizacion.aspx" />
+    <Content Include="Pages\pagVisualizarBorradorVenta.aspx" />
+    <Content Include="Pages\pagVisualizarOrdenVenta.aspx" />
+    <Content Include="Scripts\scrCotizacion.js" />
+    <Content Include="Scripts\scrFuncion.js" />
+    <Content Include="Scripts\scrInformeComisionProvisorio.js" />
+    <Content Include="Scripts\scrInformeCuentaCorriente.js" />
+    <Content Include="Scripts\scrInformeLiquidacionComision.js" />
+    <Content Include="Scripts\scrInformeVentaMensual.js" />
+    <Content Include="Scripts\scrIngresoCuartaCopia.js" />
+    <Content Include="Scripts\scrListarCliente.js" />
+    <Content Include="Scripts\scrListarProducto.js" />
+    <Content Include="Scripts\scrLoginSistema.js" />
+    <Content Include="Scripts\scrMenuSistema.js" />
+    <Content Include="Scripts\scrMonitorAutorizacion.js" />
+    <Content Include="Scripts\scrMonitorDocumento.js" />
+    <Content Include="Scripts\scrVentaBodegaPropiaProductoCarga.js" />
+    <Content Include="Scripts\scrVentaBodegaPropia.js" />
+    <Content Include="Scripts\scrVentaBodegaPropiaProducto.js" />
+    <Content Include="Scripts\scrVentaCalzadaPropia.js" />
+    <Content Include="Scripts\scrVentaCalzadaPropiaProducto.js" />
+    <Content Include="Scripts\scrVentaCalzadaProveedor.js" />
+    <Content Include="Scripts\scrVentaCalzadaProveedorProducto.js" />
+    <Content Include="Scripts\scrVentaCalzadaProveedorProductoCarga.js" />
+    <Content Include="Scripts\scrVentaConsignada.js" />
+    <Content Include="Scripts\scrVentaConsignadaProducto.js" />
+    <Content Include="Scripts\scrVentaConsignadaProductoCarga.js" />
+    <Content Include="Scripts\scrVentaCostoEspecial.js" />
+    <Content Include="Scripts\scrVentaCostoEspecialProducto.js" />
+    <Content Include="Scripts\scrVentaCostoEspecialProductoCarga.js" />
+    <Content Include="Scripts\scrVentaLiquidacion.js" />
+    <Content Include="Scripts\scrVentaLiquidacionProducto.js" />
+    <Content Include="Scripts\scrVentaLiquidacionProductoCarga.js" />
+    <Content Include="Scripts\scrVentaPuestoFundo.js" />
+    <Content Include="Scripts\scrVentaPuestoFundoProducto.js" />
+    <Content Include="Scripts\scrVentaPuestoFundoProductoCarga.js" />
+    <Content Include="Scripts\scrVersionamiento.js" />
+    <Content Include="Scripts\scrVisualizarAutorizacion.js" />
+    <Content Include="Scripts\scrVisualizarBorradorVenta.js" />
+    <Content Include="Scripts\scrVisualizarOrdenVenta.js" />
+    <Content Include="Services\srvAutorizacion.asmx" />
+    <Content Include="Services\srvBodega.asmx" />
+    <Content Include="Services\srvCliente.asmx" />
+    <Content Include="Services\srvCotizacion.asmx" />
+    <Content Include="Services\srvCuartaCopia.asmx" />
+    <Content Include="Services\srvDescuentoProducto.asmx" />
+    <Content Include="Services\srvDispatcher.asmx" />
+    <Content Include="Services\srvEmpleado.asmx" />
+    <Content Include="Services\srvFleteProducto.asmx" />
+    <Content Include="Services\srvHibridoProducto.asmx" />
+    <Content Include="Services\srvInforme.asmx" />
+    <Content Include="Services\srvIngredienteActivo.asmx" />
+    <Content Include="Services\srvInteresProducto.asmx" />
+    <Content Include="Services\srvInventario.asmx" />
+    <Content Include="Services\srvLiquidacionComision.asmx" />
+    <Content Include="Services\srvMenuSistema.asmx" />
+    <Content Include="Services\srvMes.asmx" />
+    <Content Include="Services\srvMonitorAutorizacion.asmx" />
+    <Content Include="Services\srvMonitorDocumento.asmx" />
+    <Content Include="Services\srvOperador.asmx" />
+    <Content Include="Services\srvOrdenVenta.asmx" />
+    <Content Include="Services\srvParametro.asmx" />
+    <Content Include="Services\srvPeriodoContable.asmx" />
+    <Content Include="Services\srvPlazoCompra.asmx" />
+    <Content Include="Services\srvPlazoVenta.asmx" />
+    <Content Include="Services\srvProducto.asmx" />
+    <Content Include="Services\srvProveedor.asmx" />
+    <Content Include="Services\srvRegion.asmx" />
+    <Content Include="Services\srvSerie.asmx" />
+    <Content Include="Services\srvTipoCambio.asmx" />
+    <Content Include="Services\srvTipoDespacho.asmx" />
+    <Content Include="Services\srvTransaccion.asmx" />
+    <Content Include="Services\srvUsuarioSistema.asmx" />
+    <Content Include="Styles\stySitio.css" />
+    <Content Include="web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Web References\cl.agroinsumos.wssap_test\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\cl.agroinsumos.wssap_test\srvOrdenVenta.wsdl" />
+    <None Include="Web References\PDFE\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <Content Include="Web References\PDFE\VisualizacionResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\PDFE\VisualizacionService.wsdl" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\clsAutorizacion.vb" />
+    <Compile Include="Classes\clsAutorizaciones.vb" />
+    <Compile Include="Classes\clsAutorizacionesListado.vb" />
+    <Compile Include="Classes\clsAutorizacionListado.vb" />
+    <Compile Include="Classes\clsBodega.vb" />
+    <Compile Include="Classes\clsBodegaListado.vb" />
+    <Compile Include="Classes\clsCliente.vb" />
+    <Compile Include="Classes\clsClienteListado.vb" />
+    <Compile Include="Classes\clsCotizacionDetalle.vb" />
+    <Compile Include="Classes\clsCotizacionListado.vb" />
+    <Compile Include="Classes\clsCotizacionResumen.vb" />
+    <Compile Include="Classes\clsCuartaCopia.vb" />
+    <Compile Include="Classes\clsCuartaCopiaListado.vb" />
+    <Compile Include="Classes\clsDescuentoProducto.vb" />
+    <Compile Include="Classes\clsDescuentoProductoListado.vb" />
+    <Compile Include="Classes\clsDispatcher.vb" />
+    <Compile Include="Classes\clsDispatcherListado.vb" />
+    <Compile Include="Classes\clsEmpleado.vb" />
+    <Compile Include="Classes\clsEmpleadoListado.vb" />
+    <Compile Include="Classes\clsFleteProducto.vb" />
+    <Compile Include="Classes\clsFleteProductoListado.vb" />
+    <Compile Include="Classes\clsFuncion.vb" />
+    <Compile Include="Classes\clsHibridoProducto.vb" />
+    <Compile Include="Classes\clsHibridoProductoListado.vb" />
+    <Compile Include="Classes\clsInforme.vb" />
+    <Compile Include="Classes\clsInformeListado.vb" />
+    <Compile Include="Classes\clsIngredienteActivo.vb" />
+    <Compile Include="Classes\clsIngredienteActivoListado.vb" />
+    <Compile Include="Classes\clsInteresProducto.vb" />
+    <Compile Include="Classes\clsInteresProductoListado.vb" />
+    <Compile Include="Classes\clsInventario.vb" />
+    <Compile Include="Classes\clsInventarioListado.vb" />
+    <Compile Include="Classes\clsLiquidacionComisionDetalle.vb" />
+    <Compile Include="Classes\clsLiquidacionComisionListado.vb" />
+    <Compile Include="Classes\clsLiquidacionComisionResumen.vb" />
+    <Compile Include="Classes\clsMenuSistema.vb" />
+    <Compile Include="Classes\clsMenuSistemaListado.vb" />
+    <Compile Include="Classes\clsMes.vb" />
+    <Compile Include="Classes\clsMesListado.vb" />
+    <Compile Include="Classes\clsMonitorAutorizacion.vb" />
+    <Compile Include="Classes\clsMonitorAutorizacionListado.vb" />
+    <Compile Include="Classes\clsMonitorDocumento.vb" />
+    <Compile Include="Classes\clsMonitorDocumentoListado.vb" />
+    <Compile Include="Classes\clsOperador.vb" />
+    <Compile Include="Classes\clsOperadorListado.vb" />
+    <Compile Include="Classes\clsOrden.vb" />
+    <Compile Include="Classes\clsOrdenCompra.vb" />
+    <Compile Include="Classes\clsOrdenVenta.vb" />
+    <Compile Include="Classes\clsParametro.vb" />
+    <Compile Include="Classes\clsParametroListado.vb" />
+    <Compile Include="Classes\clsPeriodoContable.vb" />
+    <Compile Include="Classes\clsPeriodoContableListado.vb" />
+    <Compile Include="Classes\clsPlazoCompra.vb" />
+    <Compile Include="Classes\clsPlazoCompraListado.vb" />
+    <Compile Include="Classes\clsPlazoVenta.vb" />
+    <Compile Include="Classes\clsPlazoVentaListado.vb" />
+    <Compile Include="Classes\clsProducto.vb" />
+    <Compile Include="Classes\clsProductoListado.vb" />
+    <Compile Include="Classes\clsProveedor.vb" />
+    <Compile Include="Classes\clsProveedorListado.vb" />
+    <Compile Include="Classes\clsRegion.vb" />
+    <Compile Include="Classes\clsRegionListado.vb" />
+    <Compile Include="Classes\clsSerie.vb" />
+    <Compile Include="Classes\clsSerieListado.vb" />
+    <Compile Include="Classes\clsTipoCambio.vb" />
+    <Compile Include="Classes\clsTipoCambioListado.vb" />
+    <Compile Include="Classes\clsTipoDespacho.vb" />
+    <Compile Include="Classes\clsTipoDespachoListado.vb" />
+    <Compile Include="Classes\clsTransaccionDetalle.vb" />
+    <Compile Include="Classes\clsTransaccionListado.vb" />
+    <Compile Include="Classes\clsTransaccionResumen.vb" />
+    <Compile Include="Classes\clsUsuarioSistema.vb" />
+    <Compile Include="Classes\clsUsuarioSistemaListado.vb" />
+    <Compile Include="Classes\ToLog.vb" />
+    <Compile Include="Classes\ToMail.vb" />
+    <Compile Include="Default.aspx.designer.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Modules\mdlVoucherVenta.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\MyExtensions\MyWebExtension.vb">
+      <VBMyExtensionTemplateID>Microsoft.VisualBasic.Web.MyExtension</VBMyExtensionTemplateID>
+      <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Pages\pagAprobarBorrador.aspx.designer.vb">
+      <DependentUpon>pagAprobarBorrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pagAprobarBorrador.aspx.vb">
+      <DependentUpon>pagAprobarBorrador.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\pagCancelarBorradorVenta.aspx.designer.vb">
+      <DependentUpon>pagCancelarBorradorVenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pagCancelarBorradorVenta.aspx.vb">
+      <DependentUpon>pagCancelarBorradorVenta.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\pagCancelarOrdenVenta.aspx.designer.vb">
+      <DependentUpon>pagCancelarOrdenVenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pagCancelarOrdenVenta.aspx.vb">
+      <DependentUpon>pagCancelarOrdenVenta.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\pagCotizacion.aspx.designer.vb">
+      <DependentUpon>pagCotizacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pagCotizacion.aspx.vb">
+      <DependentUpon>pagCotizacion.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\pagGenerarOrdenCompra.aspx.designer.vb">
+      <DependentUpon>pagGenerarOrdenCompra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pagGenerarOrdenCompra.aspx.vb">
+      <DependentUpon>pagGenerarOrdenCompra.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\pagInformeComisionProvisorio.aspx.designer.vb">
+      <DependentUpon>pagInformeComisionProvisorio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pagInformeComisionProvisorio.aspx.vb">
+      <DependentUpon>pagInformeComisionProvisorio.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\pagInformeCuentaCorriente.aspx.vb">
+      <DependentUpon>pagInformeCuentaCorriente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\pagInformeLiquidacionComision.aspx.designer.vb">
+      <DependentUpon>pagInformeLiquidacionComision.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pagInformeLiquidacionComision.aspx.vb">
+      <DependentUpon>pagInformeLiquidacionComision.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\pagInformeVentaMensual.aspx.designer.vb">
+      <DependentUpon>pagInformeVentaMensual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pagInformeVentaMensual.aspx.vb">
+      <DependentUpon>pagInformeVentaMensual.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\pagIngresoCuartaCopia.aspx.designer.vb">
+      <DependentUpon>pagIngresoCuartaCopia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pagIngresoCuartaCopia.aspx.vb">
+      <DependentUpon>pagIngresoCuartaCopia.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\pagListarCliente.aspx.designer.vb">
+      <DependentUpon>pagListarCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pagListarCliente.aspx.vb">
+      <DependentUpon>pagListarCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\pagListarProducto.aspx.designer.vb">
+      <DependentUpon>pagListarProducto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pagListarProducto.aspx.vb">
+      <DependentUpon>pagListarProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\pagLoginSistema.aspx.designer.vb">
+      <DependentUpon>pagLoginSistema.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pagLoginSistema.aspx.vb">
+      <DependentUpon>pagLoginSistema.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\pagMensajeSistema.aspx.designer.vb">
+      <DependentUpon>pagMensajeSistema.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pagMensajeSistema.aspx.vb">
+      <DependentUpon>pagMensajeSistema.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\pagMenuSistema.aspx.designer.vb">
+      <DependentUpon>pagMenuSistema.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pagMenuSistema.aspx.vb">
+      <DependentUpon>pagMenuSistema.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\pagMonitorAutorizacion.aspx.designer.vb">
+      <DependentUpon>pagMonitorAutorizacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pagMonitorAutorizacion.aspx.vb">
+      <DependentUpon>pagMonitorAutorizacion.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\pagMonitorDocumento.aspx.designer.vb">
+      <DependentUpon>pagMonitorDocumento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pagMonitorDocumento.aspx.vb">
+      <DependentUpon>pagMonitorDocumento.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\pagMuestraBlanco.aspx.designer.vb">
+      <DependentUpon>pagMuestraBlanco.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pagMuestraBlanco.aspx.vb">
+      <DependentUpon>pagMuestraBlanco.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\pagRechazarBorrador.aspx.designer.vb">
+      <DependentUpon>pagRechazarBorrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pagRechazarBorrador.aspx.vb">
+      <DependentUpon>pagRechazarBorrador.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\pagVentaBodegaPropia.aspx.designer.vb">
+      <DependentUpon>pagVentaBodegaPropia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pagVentaBodegaPropia.aspx.vb">
+      <DependentUpon>pagVentaBodegaPropia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\pagVentaCalzadaPropia.aspx.designer.vb">
+      <DependentUpon>pagVentaCalzadaPropia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pagVentaCalzadaPropia.aspx.vb">
+      <DependentUpon>pagVentaCalzadaPropia.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\pagVentaCalzadaProveedor.aspx.designer.vb">
+      <DependentUpon>pagVentaCalzadaProveedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pagVentaCalzadaProveedor.aspx.vb">
+      <DependentUpon>pagVentaCalzadaProveedor.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\pagVentaConsignada.aspx.designer.vb">
+      <DependentUpon>pagVentaConsignada.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pagVentaConsignada.aspx.vb">
+      <DependentUpon>pagVentaConsignada.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\pagVentaCostoEspecial.aspx.designer.vb">
+      <DependentUpon>pagVentaCostoEspecial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pagVentaCostoEspecial.aspx.vb">
+      <DependentUpon>pagVentaCostoEspecial.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\pagVentaLiquidacion.aspx.designer.vb">
+      <DependentUpon>pagVentaLiquidacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pagVentaLiquidacion.aspx.vb">
+      <DependentUpon>pagVentaLiquidacion.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\pagVentaPuestoFundo.aspx.designer.vb">
+      <DependentUpon>pagVentaPuestoFundo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pagVentaPuestoFundo.aspx.vb">
+      <DependentUpon>pagVentaPuestoFundo.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\pagVisualizarAutorizacion.aspx.designer.vb">
+      <DependentUpon>pagVisualizarAutorizacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pagVisualizarAutorizacion.aspx.vb">
+      <DependentUpon>pagVisualizarAutorizacion.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\pagVisualizarBorradorVenta.aspx.designer.vb">
+      <DependentUpon>pagVisualizarBorradorVenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pagVisualizarBorradorVenta.aspx.vb">
+      <DependentUpon>pagVisualizarBorradorVenta.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\pagVisualizarOrdenVenta.aspx.designer.vb">
+      <DependentUpon>pagVisualizarOrdenVenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\pagVisualizarOrdenVenta.aspx.vb">
+      <DependentUpon>pagVisualizarOrdenVenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\rscSistemaVentasWeb.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rscSistemaVentasWeb.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\srvAutorizacion.asmx.vb">
+      <DependentUpon>srvAutorizacion.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvBodega.asmx.vb">
+      <DependentUpon>srvBodega.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvCliente.asmx.vb">
+      <DependentUpon>srvCliente.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvCotizacion.asmx.vb">
+      <DependentUpon>srvCotizacion.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvCuartaCopia.asmx.vb">
+      <DependentUpon>srvCuartaCopia.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvDescuentoProducto.asmx.vb">
+      <DependentUpon>srvDescuentoProducto.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvDispatcher.asmx.vb">
+      <DependentUpon>srvDispatcher.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvEmpleado.asmx.vb">
+      <DependentUpon>srvEmpleado.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvFleteProducto.asmx.vb">
+      <DependentUpon>srvFleteProducto.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvHibridoProducto.asmx.vb">
+      <DependentUpon>srvHibridoProducto.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvInforme.asmx.vb">
+      <DependentUpon>srvInforme.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvIngredienteActivo.asmx.vb">
+      <DependentUpon>srvIngredienteActivo.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvInteresProducto.asmx.vb">
+      <DependentUpon>srvInteresProducto.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvInventario.asmx.vb">
+      <DependentUpon>srvInventario.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvLiquidacionComision.asmx.vb">
+      <DependentUpon>srvLiquidacionComision.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvMenuSistema.asmx.vb">
+      <DependentUpon>srvMenuSistema.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvMes.asmx.vb">
+      <DependentUpon>srvMes.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvMonitorAutorizacion.asmx.vb">
+      <DependentUpon>srvMonitorAutorizacion.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvMonitorDocumento.asmx.vb">
+      <DependentUpon>srvMonitorDocumento.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvOperador.asmx.vb">
+      <DependentUpon>srvOperador.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvOrdenVenta.asmx.vb">
+      <DependentUpon>srvOrdenVenta.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvParametro.asmx.vb">
+      <DependentUpon>srvParametro.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvPeriodoContable.asmx.vb">
+      <DependentUpon>srvPeriodoContable.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvPlazoCompra.asmx.vb">
+      <DependentUpon>srvPlazoCompra.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvPlazoVenta.asmx.vb">
+      <DependentUpon>srvPlazoVenta.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvProducto.asmx.vb">
+      <DependentUpon>srvProducto.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvProveedor.asmx.vb">
+      <DependentUpon>srvProveedor.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvRegion.asmx.vb">
+      <DependentUpon>srvRegion.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvSerie.asmx.vb">
+      <DependentUpon>srvSerie.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvTipoCambio.asmx.vb">
+      <DependentUpon>srvTipoCambio.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvTipoDespacho.asmx.vb">
+      <DependentUpon>srvTipoDespacho.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvTransaccion.asmx.vb">
+      <DependentUpon>srvTransaccion.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\srvUsuarioSistema.asmx.vb">
+      <DependentUpon>srvUsuarioSistema.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Web References\cl.agroinsumos.wssap_test\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\PDFE\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\rscSistemaVentasWeb.resx">
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>rscSistemaVentasWeb.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BootStrap\4.1.3\css\bootstrap-grid.css.map" />
+    <Content Include="BootStrap\4.1.3\css\bootstrap-grid.min.css.map" />
+    <Content Include="BootStrap\4.1.3\css\bootstrap-reboot.css.map" />
+    <Content Include="BootStrap\4.1.3\css\bootstrap-reboot.min.css.map" />
+    <Content Include="BootStrap\4.1.3\css\bootstrap.css.map" />
+    <Content Include="BootStrap\4.1.3\css\bootstrap.min.css.map" />
+    <Content Include="BootStrap\4.1.3\js\bootstrap.bundle.js.map" />
+    <Content Include="BootStrap\4.1.3\js\bootstrap.bundle.min.js.map" />
+    <Content Include="BootStrap\4.1.3\js\bootstrap.js.map" />
+    <Content Include="BootStrap\4.1.3\js\bootstrap.min.js.map" />
+    <Content Include="JQuery\ui\package.json" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\PublishProfiles\SistemaVentasWeb.pubxml" />
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="NLog.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BootStrap\4.1.3\fonts\" />
+    <Folder Include="JQuery\css\" />
+    <Folder Include="JQuery\images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://wssap_test.agroinsumos.cl/Services/srvOrdenVenta.asmx%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\cl.agroinsumos.wssap_test\</RelPath>
+      <UpdateFromURL>http://wssap_test.agroinsumos.cl/Services/srvOrdenVenta.asmx%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>SistemaVentasWeb_cl_agroinsumos_wssap_test_srvOrdenVenta</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://cloudtattersallqa.azurian.com/dte-ws-services/services/VisualizacionService%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\PDFE\</RelPath>
+      <UpdateFromURL>https://cloudtattersallqa.azurian.com/dte-ws-services/services/VisualizacionService%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>SistemaVentasWeb_com_azurian_cloudtattersallqa_VisualizacionService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2604</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!--     
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>40178</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/SistemaVentasWeb</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Modelo ER · Sistema de Ventas SAP Business One</title>
+<style>
+:root{--navy:#0b2543;--blue:#1977b4;--orange:#e87d28;--green:#459b6b;--ink:#292929;--muted:#6b7280;--paper:#f4f6f8;--line:#d7dee7}
+*{box-sizing:border-box} body{margin:0;background:#18212b;color:var(--ink);font-family:Aptos,"Segoe UI",Arial,sans-serif;overflow:hidden}
+.deck{height:100vh;display:grid;place-items:center}.slide{display:none;position:relative;width:min(96vw,1280px);aspect-ratio:16/9;background:white;padding:76px 58px 52px;border-radius:8px;box-shadow:0 18px 60px #0008;overflow:hidden}.slide.active{display:block}
+.slide:before{content:"";position:absolute;inset:0 0 auto;height:56px;background:var(--navy)}.slide:after{content:"";position:absolute;inset:auto 0 0;height:10px;background:var(--blue)}
+h1{font-size:40px;margin:0 0 25px;color:var(--navy)}h2{position:absolute;top:11px;left:38px;margin:0;color:#fff;font-size:26px}h3{color:var(--navy);font-size:23px;margin:0 0 12px}p,li{font-size:19px;line-height:1.35}ul{margin:12px 0;padding-left:28px}li{margin:9px 0}.section{position:absolute;right:38px;top:19px;color:#dceaf4;font-size:12px;font-weight:700;letter-spacing:.08em}.page{position:absolute;right:35px;bottom:18px;color:var(--muted);font-size:12px}.foot{position:absolute;left:38px;bottom:18px;color:var(--muted);font-size:12px}
+.cover{background:var(--navy);color:#fff;padding:110px 70px}.cover:before{display:none}.cover h1{color:#fff;font-size:54px;margin-top:30px}.cover .sub{font-size:30px;color:#d5e7f4}.cover .line{height:12px;background:var(--orange);margin:80px -70px 35px}.cover .meta{display:flex;justify-content:space-between;color:#d5e7f4;font-size:17px}
+.grid{display:grid;gap:22px}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+.card{border:2px solid var(--line);border-radius:14px;padding:18px;text-align:center;background:var(--paper);min-height:110px;display:flex;flex-direction:column;justify-content:center}.card b{color:var(--navy);font-size:21px}.card small{font-size:16px;margin-top:8px;line-height:1.3}.blue{background:#e7f2fa;border-color:var(--blue)}.green{background:#e8f5ee;border-color:var(--green)}.orange{background:#fff1e5;border-color:var(--orange)}
+.flow{display:flex;align-items:center;justify-content:center;gap:9px;margin:55px 0}.node{width:145px;min-height:105px;border:2px solid var(--blue);background:#e7f2fa;border-radius:13px;padding:15px 8px;text-align:center;display:flex;flex-direction:column;justify-content:center}.node b{font-size:17px;color:var(--navy)}.node span{font-size:14px;margin-top:8px}.arrow{font-size:34px;color:var(--blue);font-weight:700}.note{padding:15px 20px;border-left:6px solid var(--orange);background:#fff6ee;font-size:18px;margin-top:25px}.center{text-align:center}.pill{display:inline-block;border-radius:999px;padding:8px 15px;margin:5px;background:#edf1f5;font-weight:700;color:var(--navy)}
+.domain{position:relative;height:400px}.domain .core{position:absolute;left:39%;top:37%;width:22%}.domain .tl{position:absolute;left:2%;top:2%;width:25%}.domain .tr{position:absolute;right:2%;top:2%;width:25%}.domain .bl{position:absolute;left:2%;bottom:2%;width:25%}.domain .br{position:absolute;right:2%;bottom:2%;width:25%}.domain .bc{position:absolute;left:38%;bottom:0;width:24%}
+table{width:100%;border-collapse:collapse;font-size:16px}th{background:var(--navy);color:#fff;text-align:left;padding:10px}td{padding:9px;border-bottom:1px solid var(--line)}.compact{font-size:13px}.compact th,.compact td{padding:4px 7px}
+.controls{position:fixed;right:22px;bottom:20px;display:flex;gap:8px;z-index:5}.controls button{border:0;border-radius:8px;background:#ffffffdd;color:var(--navy);font-size:20px;padding:8px 13px;cursor:pointer}.counter{position:fixed;left:20px;bottom:20px;color:#fff;font-size:13px;z-index:5}
+@media print{body{background:white;overflow:visible}.deck{display:block;height:auto}.slide,.slide.active{display:block;width:13.333in;height:7.5in;page-break-after:always;box-shadow:none;border-radius:0}.controls,.counter{display:none}}
+</style>
+</head>
+<body>
+<main class="deck">
+  <section class="slide cover active">
+    <h1>Modelo entidad–relación</h1><div class="sub">Sistema de Ventas integrado con SAP Business One</div>
+    <div class="line"></div><p>Modelo consolidado desde código VB.NET, procedimientos, vistas y funciones SQL.</p>
+    <div class="meta"><span>Tattersall · Documento técnico ejecutivo</span><span>Agosto 2026</span></div>
+  </section>
+
+  <section class="slide"><h2>Alcance del levantamiento</h2><span class="section">CONTEXTO</span>
+    <div class="grid g3"><div class="card blue"><b>Código fuente</b><small>Portal Web Forms VB.NET<br>Servicio SAP DI API</small></div><div class="card green"><b>Capa SQL</b><small>56 procedimientos utilizados<br>por el sistema revisado</small></div><div class="card orange"><b>Dependencias</b><small>Vistas, funciones, UDT<br>y tablas propias</small></div></div>
+    <ul><li>El modelo identifica tablas efectivamente referenciadas; no representa toda la base SAP.</li><li>Las relaciones documentales usan principalmente <b>DocEntry</b> y <b>BaseType/BaseEntry/BaseLine</b>.</li><li>Las relaciones lógicas pueden no existir como restricciones FOREIGN KEY físicas.</li><li><b>TAI_VW_Parametros</b> fue confirmada como tabla física de parámetros.</li></ul>
+  </section>
+
+  <section class="slide"><h2>Mapa de dominios de datos</h2><span class="section">VISIÓN GENERAL</span>
+    <div class="domain"><div class="card blue tl"><b>Socios de negocio</b><small>OCRD · CRD1 · OSLP</small></div><div class="card green tr"><b>Productos e inventario</b><small>OITM · OITW · OWHS</small></div><div class="card orange core"><b>Núcleo comercial</b><small>ORDR · OINV · OPOR</small></div><div class="card bl"><b>Finanzas y pagos</b><small>OJDT · JDT1 · ORCT</small></div><div class="card br"><b>Reglas comerciales</b><small>Autorizaciones · descuentos</small></div><div class="card bc"><b>Comisiones</b><small>Vistas y liquidaciones</small></div></div>
+  </section>
+
+  <section class="slide"><h2>Maestros: socios de negocio y productos</h2><span class="section">MODELO ER</span>
+    <div class="grid g2"><div><h3>Clientes y proveedores</h3><div class="flow"><div class="node"><b>OCRG</b><span>Grupo</span></div><div class="arrow">→</div><div class="node"><b>OCRD</b><span>PK CardCode</span></div><div class="arrow">→</div><div class="node"><b>CRD1</b><span>Direcciones</span></div></div><div class="center"><span class="pill">OCTG · condición de pago</span><span class="pill">OSLP · vendedor asignado</span><span class="pill">OCST · región de dirección</span></div><div style="font-size:12px;line-height:1.5;margin-top:12px;color:var(--muted)"><b>Relaciones:</b> OCRD.GroupNum → OCTG.GroupNum · OCRD.SlpCode → OSLP.SlpCode · CRD1.State → OCST.Code</div></div><div><h3>Productos e inventario</h3><div class="flow"><div class="node"><b>OITB</b><span>Grupo artículo</span></div><div class="arrow">→</div><div class="node"><b>OITM</b><span>PK ItemCode</span></div><div class="arrow">→</div><div class="node"><b>OITW</b><span>Stock/bodega</span></div></div><div class="center"><span class="pill">ITM1 · precios</span><span class="pill">OWHS · bodega</span><span class="pill">OLCT · localidad</span></div></div></div>
+  </section>
+
+  <section class="slide"><h2>Flujo documental de venta</h2><span class="section">DOCUMENTOS SAP</span>
+    <div class="flow"><div class="node"><b>OQUT / QUT1</b><span>Cotización</span></div><div class="arrow">→</div><div class="node"><b>ODRF / DRF1</b><span>Borrador</span></div><div class="arrow">→</div><div class="node"><b>ORDR / RDR1</b><span>Orden</span></div><div class="arrow">→</div><div class="node"><b>ODLN / DLN1</b><span>Entrega</span></div><div class="arrow">→</div><div class="node"><b>OINV / INV1</b><span>Factura</span></div><div class="arrow">→</div><div class="node"><b>ORIN / RIN1</b><span>Nota crédito</span></div></div>
+    <div class="grid g3"><div class="card"><b>BaseType</b><small>Tipo de objeto origen</small></div><div class="card"><b>BaseEntry</b><small>DocEntry del origen</small></div><div class="card"><b>BaseLine</b><small>LineNum del origen</small></div></div>
+  </section>
+
+  <section class="slide"><h2>Compras e inventario conectados a la venta</h2><span class="section">DOCUMENTOS SAP</span>
+    <div class="flow"><div class="node"><b>ORDR / RDR1</b><span>Orden venta</span></div><div class="arrow">→</div><div class="node"><b>OPOR / POR1</b><span>BaseType = 17</span></div><div class="arrow">→</div><div class="node"><b>OPDN</b><span>Entrada proveedor</span></div><div class="arrow">→</div><div class="node"><b>OPCH</b><span>Factura proveedor</span></div></div>
+    <h3>Disponibilidad y movimientos</h3><div class="grid g4"><div class="card green"><b>OITW</b><small>Stock por bodega</small></div><div class="card"><b>OINM</b><small>Historial</small></div><div class="card"><b>OWTR / WTR1</b><small>Transferencias</small></div><div class="card"><b>OIGN / OIGE / OWOR</b><small>Entradas, salidas y producción</small></div></div><div class="note center">Clave de integración de inventario: <b>ItemCode + WhsCode</b></div>
+  </section>
+
+  <section class="slide"><h2>Finanzas, pagos y cuenta corriente</h2><span class="section">MODELO ER</span>
+    <div class="flow"><div class="node"><b>OCRD</b><span>Socio</span></div><div class="arrow">→</div><div class="node"><b>JDT1</b><span>ShortName</span></div><div class="arrow">→</div><div class="node"><b>OJDT</b><span>Asiento</span></div><div class="arrow">↔</div><div class="node"><b>OACT</b><span>Cuenta</span></div></div>
+    <div class="grid g4"><div class="card green"><b>ORCT / RCT2</b><small>Pagos recibidos</small></div><div class="card green"><b>OVPM / VPM2</b><small>Pagos efectuados</small></div><div class="card blue"><b>OINV / ORIN</b><small>Facturas y NC</small></div><div class="card orange"><b>TAI_VW_CtaCte_Cliente</b><small>Saldo consolidado</small></div></div>
+    <div class="note">TransType: 13 factura · 14 nota de crédito · 24 pago recibido · 30 asiento</div>
+  </section>
+
+  <section class="slide"><h2>Autorizaciones y matriz de descuentos</h2><span class="section">REGLAS COMERCIALES</span>
+    <div class="grid g3"><div class="card blue"><b>ODRF</b><small>Borrador</small></div><div class="card orange"><b>tai_tb_autorizaciones</b><small>Estado y contadores · DocEntry</small></div><div class="card orange"><b>tai_tb_dispatcher</b><small>Autorizador y backup</small></div></div>
+    <div class="flow"><div class="node"><b>Grupo</b><span>matriz_descto_grupo</span></div><div class="arrow">→</div><div class="node"><b>Subgrupo</b><span>matriz_descto_subgrupo</span></div><div class="arrow">→</div><div class="node"><b>Línea</b><span>matriz_descto_linea</span></div><div class="arrow">→</div><div class="node"><b>Resumen</b><span>Producto/proveedor</span></div><div class="arrow">→</div><div class="node"><b>Detalle</b><span>Sucursal/autorizador</span></div></div>
+    <div class="note center">Crédito · deuda vencida · protestos · margen · costo · tasa</div>
+  </section>
+
+  <section class="slide"><h2>Cadena de cálculo de comisiones</h2><span class="section">ANALÍTICA</span>
+    <div class="flow"><div class="node"><b>Ventas</b><span>CabVtas + DetVtas</span></div><div class="arrow">→</div><div class="node"><b>Base</b><span>TAI_VW_COMISION</span></div><div class="arrow">→</div><div class="node"><b>Detalle</b><span>comision_detalle</span></div><div class="arrow">→</div><div class="node"><b>Provisorio</b><span>Carga del periodo</span></div><div class="arrow">→</div><div class="node"><b>Liquidación</b><span>Resumen + detalle</span></div></div>
+    <ul><li>Usa facturas y notas de crédito como origen.</li><li>Combina margen, costo por bodega, línea, sucursal y vendedor.</li><li>Aplica reglas generales, específicas, excluyentes y políticas UDT.</li></ul>
+  </section>
+
+  <section class="slide"><h2>Inventario técnico detectado</h2><span class="section">RESUMEN</span>
+    <div class="grid g4"><div class="card blue"><b>68 aprox.</b><small>Tablas estándar SAP</small></div><div class="card green"><b>17</b><small>Tablas UDT @...</small></div><div class="card orange"><b>30 aprox.</b><small>Tablas propias/carga</small></div><div class="card"><b>56</b><small>Procedimientos utilizados</small></div></div>
+    <div class="grid g2" style="margin-top:38px"><div class="card"><b>8 vistas analizadas</b><small>Documentos, cuenta corriente y comisiones</small></div><div class="card"><b>3 funciones analizadas</b><small>Precio, monitor OV y agrupación</small></div></div>
+    <div class="note center">El inventario representa objetos usados por el sistema, no la totalidad del esquema SAP.</div>
+  </section>
+
+  <section class="slide"><h2>TAI_VW_Parametros: dónde y para qué se utiliza</h2><span class="section">TABLA PROPIA</span>
+    <div class="card green" style="min-height:72px;margin-bottom:15px"><b>Dos funciones centrales</b><small>Catálogo para combos/filtros · Traducción de códigos U_TAI_* a descripciones</small></div>
+    <table class="compact"><thead><tr><th>Grupo</th><th>Consumidor</th><th>Uso funcional</th></tr></thead><tbody>
+      <tr><td>autorizacion</td><td>Monitor de autorizaciones</td><td>Estados pendiente, aprobado y rechazado</td></tr>
+      <tr><td>categoria</td><td>Cliente, borrador, OV y OC</td><td>Describe OCRD.U_TAI_Categoria</td></tr>
+      <tr><td>cotizacion</td><td>Pantalla de cotizaciones</td><td>Estados del proceso comercial</td></tr>
+      <tr><td>documento</td><td>Monitor documental</td><td>Estado de autorización/facturación</td></tr>
+      <tr><td>emision</td><td>Formularios de venta y cotización</td><td>Factura (F) o boleta (B)</td></tr>
+      <tr><td>moneda</td><td>Cliente y formularios de venta</td><td>CLP, USD y EUR</td></tr>
+      <tr><td>motivo</td><td>Venta y documentos SAP</td><td>Condición especial / falta de stock</td></tr>
+    </tbody></table>
+    <div class="note" style="margin-top:8px;padding:7px 12px;font-size:13px">Ruta: JavaScript → srvParametro → select_parametro → tabla. Los grupos cargo y zona existen, sin consumidor directo confirmado entre los 56 SP activos.</div>
+  </section>
+</main>
+<div class="counter" id="counter"></div><div class="controls"><button id="prev" title="Anterior">←</button><button id="full" title="Pantalla completa">⛶</button><button id="next" title="Siguiente">→</button></div>
+<script>
+const slides=[...document.querySelectorAll('.slide')];let current=0;const counter=document.getElementById('counter');
+slides.forEach((s,i)=>{s.insertAdjacentHTML('beforeend',`<span class="foot">Sistema de Ventas · SAP Business One</span><span class="page">${i+1}</span>`)});
+slides[0].querySelectorAll('.foot,.page').forEach(x=>x.remove());
+function show(n){current=(n+slides.length)%slides.length;slides.forEach((s,i)=>s.classList.toggle('active',i===current));counter.textContent=`${current+1} / ${slides.length}`}
+document.getElementById('prev').onclick=()=>show(current-1);document.getElementById('next').onclick=()=>show(current+1);document.getElementById('full').onclick=()=>document.documentElement.requestFullscreen?.();
+addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key))show(current+1);if(['ArrowLeft','PageUp'].includes(e.key))show(current-1);if(e.key==='Home')show(0);if(e.key==='End')show(slides.length-1);if(e.key.toLowerCase()==='f')document.documentElement.requestFullscreen?.()});show(0);
+</script>
+</body>
+</html>

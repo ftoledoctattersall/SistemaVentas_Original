@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:ax255="http://visualizaciondoc.webservices.dte.azurian.com/xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns="http://visualizaciondoc.webservices.dte.azurian.com" xmlns:ns1="http://org.apache.axis2/xsd" targetNamespace="http://visualizaciondoc.webservices.dte.azurian.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>
+		Please Type your service description here
+	</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema xmlns:ax256="http://visualizaciondoc.webservices.dte.azurian.com/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://visualizaciondoc.webservices.dte.azurian.com">
+      <xs:import namespace="http://visualizaciondoc.webservices.dte.azurian.com/xsd" />
+      <xs:element name="visualizacionPDF">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="request" nillable="true" type="ax256:VisualizacionRequest" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="visualizacionPDFResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="ax256:VisualizacionResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://visualizaciondoc.webservices.dte.azurian.com/xsd">
+      <xs:complexType name="VisualizacionRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="apiKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="numeroFolio" type="xs:long" />
+          <xs:element minOccurs="0" name="resolucionSii" type="xs:int" />
+          <xs:element minOccurs="0" name="rutEmpresa" type="xs:int" />
+          <xs:element minOccurs="0" name="tipoDocumento" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="VisualizacionResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codigoRespuesta" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="pdf64Documento" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="respuesta" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="urlDocumento" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="visualizacionPDFRequest">
+    <wsdl:part name="parameters" element="ns:visualizacionPDF" />
+  </wsdl:message>
+  <wsdl:message name="visualizacionPDFResponse">
+    <wsdl:part name="parameters" element="ns:visualizacionPDFResponse" />
+  </wsdl:message>
+  <wsdl:portType name="VisualizacionServicePortType">
+    <wsdl:operation name="visualizacionPDF">
+      <wsdl:input wsaw:Action="urn:visualizacionPDF" message="ns:visualizacionPDFRequest" />
+      <wsdl:output wsaw:Action="urn:visualizacionPDFResponse" message="ns:visualizacionPDFResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="VisualizacionServiceSoap11Binding" type="ns:VisualizacionServicePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="visualizacionPDF">
+      <soap:operation soapAction="urn:visualizacionPDF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VisualizacionServiceSoap12Binding" type="ns:VisualizacionServicePortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="visualizacionPDF">
+      <soap12:operation soapAction="urn:visualizacionPDF" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="VisualizacionServiceHttpBinding" type="ns:VisualizacionServicePortType">
+    <http:binding verb="POST" />
+    <wsdl:operation name="visualizacionPDF">
+      <http:operation location="visualizacionPDF" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VisualizacionService">
+    <wsdl:port name="VisualizacionServiceHttpSoap11Endpoint" binding="ns:VisualizacionServiceSoap11Binding">
+      <soap:address location="http://cloudtattersallqa.azurian.com/dte-ws-services/services/VisualizacionService.VisualizacionServiceHttpSoap11Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="VisualizacionServiceHttpsSoap11Endpoint" binding="ns:VisualizacionServiceSoap11Binding">
+      <soap:address location="https://cloudtattersallqa.azurian.com/dte-ws-services/services/VisualizacionService.VisualizacionServiceHttpsSoap11Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="VisualizacionServiceHttpSoap12Endpoint" binding="ns:VisualizacionServiceSoap12Binding">
+      <soap12:address location="http://cloudtattersallqa.azurian.com/dte-ws-services/services/VisualizacionService.VisualizacionServiceHttpSoap12Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="VisualizacionServiceHttpsSoap12Endpoint" binding="ns:VisualizacionServiceSoap12Binding">
+      <soap12:address location="https://cloudtattersallqa.azurian.com/dte-ws-services/services/VisualizacionService.VisualizacionServiceHttpsSoap12Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="VisualizacionServiceHttpsEndpoint" binding="ns:VisualizacionServiceHttpBinding">
+      <http:address location="https://cloudtattersallqa.azurian.com/dte-ws-services/services/VisualizacionService.VisualizacionServiceHttpsEndpoint/" />
+    </wsdl:port>
+    <wsdl:port name="VisualizacionServiceHttpEndpoint" binding="ns:VisualizacionServiceHttpBinding">
+      <http:address location="http://cloudtattersallqa.azurian.com/dte-ws-services/services/VisualizacionService.VisualizacionServiceHttpEndpoint/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

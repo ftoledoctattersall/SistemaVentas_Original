@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Modelo ER · Sistema de Ventas SAP Business One</title>
+<style>
+:root{--navy:#0b2543;--blue:#1977b4;--orange:#e87d28;--green:#459b6b;--ink:#292929;--muted:#6b7280;--paper:#f4f6f8;--line:#d7dee7}
+*{box-sizing:border-box} body{margin:0;background:#18212b;color:var(--ink);font-family:Aptos,"Segoe UI",Arial,sans-serif;overflow:hidden}
+.deck{height:100vh;display:grid;place-items:center}.slide{display:none;position:relative;width:min(96vw,1280px);aspect-ratio:16/9;background:white;padding:76px 58px 52px;border-radius:8px;box-shadow:0 18px 60px #0008;overflow:hidden}.slide.active{display:block}
+.slide:before{content:"";position:absolute;inset:0 0 auto;height:56px;background:var(--navy)}.slide:after{content:"";position:absolute;inset:auto 0 0;height:10px;background:var(--blue)}
+h1{font-size:40px;margin:0 0 25px;color:var(--navy)}h2{position:absolute;top:11px;left:38px;margin:0;color:#fff;font-size:26px}h3{color:var(--navy);font-size:23px;margin:0 0 12px}p,li{font-size:19px;line-height:1.35}ul{margin:12px 0;padding-left:28px}li{margin:9px 0}.section{position:absolute;right:38px;top:19px;color:#dceaf4;font-size:12px;font-weight:700;letter-spacing:.08em}.page{position:absolute;right:35px;bottom:18px;color:var(--muted);font-size:12px}.foot{position:absolute;left:38px;bottom:18px;color:var(--muted);font-size:12px}
+.cover{background:var(--navy);color:#fff;padding:110px 70px}.cover:before{display:none}.cover h1{color:#fff;font-size:54px;margin-top:30px}.cover .sub{font-size:30px;color:#d5e7f4}.cover .line{height:12px;background:var(--orange);margin:80px -70px 35px}.cover .meta{display:flex;justify-content:space-between;color:#d5e7f4;font-size:17px}
+.grid{display:grid;gap:22px}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+.card{border:2px solid var(--line);border-radius:14px;padding:18px;text-align:center;background:var(--paper);min-height:110px;display:flex;flex-direction:column;justify-content:center}.card b{color:var(--navy);font-size:21px}.card small{font-size:16px;margin-top:8px;line-height:1.3}.blue{background:#e7f2fa;border-color:var(--blue)}.green{background:#e8f5ee;border-color:var(--green)}.orange{background:#fff1e5;border-color:var(--orange)}
+.flow{display:flex;align-items:center;justify-content:center;gap:9px;margin:55px 0}.node{width:145px;min-height:105px;border:2px solid var(--blue);background:#e7f2fa;border-radius:13px;padding:15px 8px;text-align:center;display:flex;flex-direction:column;justify-content:center}.node b{font-size:17px;color:var(--navy)}.node span{font-size:14px;margin-top:8px}.arrow{font-size:34px;color:var(--blue);font-weight:700}.note{padding:15px 20px;border-left:6px solid var(--orange);background:#fff6ee;font-size:18px;margin-top:25px}.center{text-align:center}.pill{display:inline-block;border-radius:999px;padding:8px 15px;margin:5px;background:#edf1f5;font-weight:700;color:var(--navy)}
+.discount-flow{gap:5px}.discount-flow .node{width:190px;min-height:118px;padding:14px 10px}.discount-flow .node b{font-size:15px;overflow-wrap:anywhere;line-height:1.2}.discount-flow .node span{font-size:13px;line-height:1.25}.discount-flow .arrow{font-size:27px}
+.udf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.udf-card{border:2px solid var(--line);border-radius:12px;overflow:hidden;background:#f8fafc}.udf-card h3{margin:0;padding:11px 14px;background:var(--navy);color:#fff;font-size:17px}.udf-card .purpose{display:block;padding:8px 14px;background:#e7f2fa;color:var(--navy);font-size:13px;font-weight:700}.udf-list{list-style:none;margin:0;padding:10px 14px}.udf-list li{margin:4px 0;font:13px/1.25 Consolas,"Courier New",monospace;color:#263442}.udf-table{font-size:13px}.udf-table th,.udf-table td{padding:6px 9px}.udf-table code{font-size:12px;color:#9a3412;font-weight:700}
+.udt-table{font-size:12px}.udt-table th,.udt-table td{padding:5px 8px}.udt-table td:first-child{width:22%;font-weight:800;color:var(--navy)}.udt-table td:nth-child(2){width:31%}.udt-table code{font-size:11px;color:#9a3412;font-weight:700}
+.domain{position:relative;height:400px}.domain .card small{font-size:13px;text-align:left;align-self:center}.domain .card small b{font-size:13px;color:var(--navy)}.domain .core{position:absolute;left:39%;top:34%;width:22%}.domain .tl{position:absolute;left:2%;top:2%;width:27%}.domain .tr{position:absolute;right:2%;top:2%;width:27%}.domain .bl{position:absolute;left:2%;bottom:2%;width:27%}.domain .br{position:absolute;right:2%;bottom:2%;width:27%}.domain .bc{position:absolute;left:37%;bottom:0;width:26%}
+.er-svg{width:100%;height:405px;overflow:visible}.er-svg .entity{fill:#f7f9fb;stroke:#334155;stroke-width:2;transform-box:fill-box;transform-origin:center;transform:scaleX(1.18)}.er-svg .entity-head{fill:var(--navy);transform-box:fill-box;transform-origin:center;transform:scaleX(1.18)}.er-svg .ename{fill:#fff;font-size:12px;font-weight:700;text-anchor:middle}.er-svg .attr{fill:#263442;font-size:11px}.er-svg .key{fill:var(--orange);font-weight:700}.er-svg .rel{fill:none;stroke:#64748b;stroke-width:2}.er-svg .cardinality{fill:#c2410c;stroke:#fff;stroke-width:5px;paint-order:stroke;stroke-linejoin:round;font-size:18px;font-weight:800}.er-svg .rlabel{fill:#334155;stroke:#fff;stroke-width:4px;paint-order:stroke;font-size:12px;font-weight:700}.er-legend{position:absolute;right:55px;bottom:25px;font-size:13px;color:var(--muted);font-weight:600}
+table{width:100%;border-collapse:collapse;font-size:16px}th{background:var(--navy);color:#fff;text-align:left;padding:10px}td{padding:9px;border-bottom:1px solid var(--line)}.compact{font-size:13px}.compact th,.compact td{padding:4px 7px}
+.controls{position:fixed;right:22px;bottom:20px;display:flex;gap:8px;z-index:5}.controls button{border:0;border-radius:8px;background:#ffffffdd;color:var(--navy);font-size:20px;padding:8px 13px;cursor:pointer}.counter{position:fixed;left:20px;bottom:20px;color:#fff;font-size:13px;z-index:5}
+@media print{body{background:white;overflow:visible}.deck{display:block;height:auto}.slide,.slide.active{display:block;width:13.333in;height:7.5in;page-break-after:always;box-shadow:none;border-radius:0}.controls,.counter{display:none}}
+</style>
+</head>
+<body>
+<main class="deck">
+  <section class="slide cover active">
+    <h1>Modelo entidad–relación</h1><div class="sub">Sistema de Ventas integrado con SAP Business One</div>
+    <div class="line"></div><p>Modelo consolidado desde código VB.NET, procedimientos, vistas y funciones SQL.</p>
+    <div class="meta"><span>Tattersall · Documento técnico ejecutivo</span><span>Agosto 2026</span></div>
+  </section>
+
+  <section class="slide"><h2>Alcance del levantamiento</h2><span class="section">CONTEXTO</span>
+    <div class="grid g3"><div class="card blue"><b>Código fuente</b><small>Portal Web Forms VB.NET<br>Servicio SAP DI API</small></div><div class="card green"><b>Capa SQL</b><small>56 procedimientos utilizados<br>por el sistema revisado</small></div><div class="card orange"><b>Dependencias</b><small>Vistas, funciones, UDT<br>y tablas propias</small></div></div>
+    <ul><li>El modelo identifica tablas efectivamente referenciadas; no representa toda la base SAP.</li><li>Las relaciones documentales usan principalmente <b>DocEntry</b> y <b>BaseType/BaseEntry/BaseLine</b>.</li><li>Las relaciones lógicas pueden no existir como restricciones FOREIGN KEY físicas.</li></ul>
+  </section>
+
+  <section class="slide"><h2>Mapa de dominios de datos</h2><span class="section">VISIÓN GENERAL</span>
+    <div class="domain">
+      <div class="card blue tl"><b>Socios de negocio</b><small><b>OCRD</b> — Clientes/proveedores<br><b>CRD1</b> — Direcciones<br><b>OSLP</b> — Vendedores</small></div>
+      <div class="card green tr"><b>Productos e inventario</b><small><b>OITM</b> — Productos<br><b>OITW</b> — Stock por bodega<br><b>OWHS</b> — Bodegas</small></div>
+      <div class="card orange core"><b>Núcleo comercial</b><small><b>ORDR</b> — Órdenes de venta<br><b>OINV</b> — Facturas cliente<br><b>OPOR</b> — Órdenes de compra</small></div>
+      <div class="card bl"><b>Finanzas y pagos</b><small><b>OJDT</b> — Asientos contables<br><b>JDT1</b> — Líneas contables<br><b>ORCT</b> — Pagos recibidos</small></div>
+      <div class="card br"><b>Reglas comerciales</b><small><b>tai_tb_autorizaciones</b> — Autorizaciones<br><b>tai_tb_dispatcher</b> — Solicitudes<br><b>matriz_descto_*</b> — Descuentos</small></div>
+      <div class="card bc"><b>Comisiones</b><small><b>TAI_VW_COMISION</b> — Cálculo<br><b>comision_detalle</b> — Detalle<br><b>comision_liquidacion_*</b> — Liquidación</small></div>
+    </div>
+  </section>
+
+  <section class="slide"><h2>Modelo ER: socios de negocio, vendedores y empleados</h2><span class="section">MODELO ER</span>
+    <svg class="er-svg" viewBox="0 0 1120 410" role="img" aria-label="Modelo entidad relación de socios de negocio">
+      <path class="rel" d="M85 78 L240 165"/><text class="cardinality" x="112" y="103">1</text><text class="cardinality" x="218" y="137">N</text><text class="rlabel" x="145" y="112">GroupCode</text>
+      <path class="rel" d="M260 78 L280 145"/><text class="cardinality" x="251" y="101">1</text><text class="cardinality" x="288" y="128">N</text><text class="rlabel" x="270" y="112">GroupNum</text>
+      <path class="rel" d="M435 78 L340 145"/><text class="cardinality" x="415" y="104">1</text><text class="cardinality" x="354" y="128">N</text><text class="rlabel" x="385" y="112">SlpCode</text>
+      <path class="rel" d="M290 225 L290 305"/><text class="cardinality" x="300" y="251">1</text><text class="cardinality" x="300" y="290">N</text><text class="rlabel" x="307" y="272">CardCode</text>
+      <path class="rel" d="M420 340 L510 340"/><text class="cardinality" x="441" y="359">N</text><text class="cardinality" x="482" y="359">1</text><text class="rlabel" x="446" y="330">State</text>
+      <path class="rel" d="M665 78 L775 165"/><text class="cardinality" x="686" y="104">1</text><text class="cardinality" x="752" y="137">N</text><text class="rlabel" x="710" y="112">userId</text>
+      <path class="rel" d="M850 78 L825 145"/><text class="cardinality" x="858" y="103">1</text><text class="cardinality" x="812" y="128">N</text><text class="rlabel" x="834" y="112">branch</text>
+      <path class="rel" d="M1025 78 L880 165"/><text class="cardinality" x="996" y="105">1</text><text class="cardinality" x="900" y="137">N</text><text class="rlabel" x="937" y="112">tipo empleado</text>
+      <path class="rel" d="M825 225 L825 305"/><text class="cardinality" x="836" y="251">1</text><text class="cardinality" x="836" y="290">N</text><text class="rlabel" x="842" y="272">empID</text>
+      <path class="rel" d="M360 195 L510 195"/><text class="cardinality" x="387" y="215">N</text><text class="cardinality" x="480" y="215">1</text><text class="rlabel" x="397" y="183">U_TAI_Categoria</text>
+      <g><rect class="entity" x="25" y="12" width="120" height="66"/><rect class="entity-head" x="25" y="12" width="120" height="27"/><text class="ename" x="85" y="31">OCRG · Grupos SN</text><text class="attr key" x="34" y="54">PK GroupCode</text><text class="attr" x="34" y="68">GroupName</text></g>
+      <g><rect class="entity" x="200" y="12" width="120" height="66"/><rect class="entity-head" x="200" y="12" width="120" height="27"/><text class="ename" x="260" y="31">OCTG · Cond. pago</text><text class="attr key" x="209" y="54">PK GroupNum</text><text class="attr" x="209" y="68">PymntGroup</text></g>
+      <g><rect class="entity" x="375" y="12" width="120" height="66"/><rect class="entity-head" x="375" y="12" width="120" height="27"/><text class="ename" x="435" y="31">OSLP · Vendedores</text><text class="attr key" x="384" y="54">PK SlpCode</text><text class="attr" x="384" y="68">SlpName</text></g>
+      <g><rect class="entity" x="220" y="145" width="140" height="80"/><rect class="entity-head" x="220" y="145" width="140" height="27"/><text class="ename" x="290" y="164">OCRD · Clientes/prov.</text><text class="attr key" x="229" y="188">PK CardCode</text><text class="attr" x="229" y="202">FK GroupCode</text><text class="attr" x="229" y="216">FK GroupNum · SlpCode</text></g>
+      <g><rect class="entity" x="510" y="155" width="165" height="80"/><rect class="entity-head" x="510" y="155" width="165" height="27"/><text class="ename" x="592" y="174">TAI_VW_Parametros · Catálogo</text><text class="attr key" x="519" y="198">Grupo + código</text><text class="attr" x="519" y="212">par_enlace</text><text class="attr" x="519" y="226">par_nombre</text></g>
+      <g><rect class="entity" x="220" y="305" width="200" height="80"/><rect class="entity-head" x="220" y="305" width="200" height="27"/><text class="ename" x="320" y="324">CRD1 · Direcciones</text><text class="attr key" x="229" y="348">PK CardCode + Address</text><text class="attr" x="229" y="362">AdresType · Street · City</text><text class="attr" x="229" y="376">FK State</text></g>
+      <g><rect class="entity" x="510" y="305" width="120" height="66"/><rect class="entity-head" x="510" y="305" width="120" height="27"/><text class="ename" x="570" y="324">OCST · Regiones</text><text class="attr key" x="519" y="348">PK Code</text><text class="attr" x="519" y="362">Name</text></g>
+      <g><rect class="entity" x="605" y="12" width="120" height="66"/><rect class="entity-head" x="605" y="12" width="120" height="27"/><text class="ename" x="665" y="31">OUSR · Usuarios SAP</text><text class="attr key" x="614" y="54">PK USERID</text><text class="attr" x="614" y="68">USER_CODE</text></g>
+      <g><rect class="entity" x="790" y="12" width="120" height="66"/><rect class="entity-head" x="790" y="12" width="120" height="27"/><text class="ename" x="850" y="31">OUBR · Sucursales</text><text class="attr key" x="799" y="54">PK Code</text><text class="attr" x="799" y="68">Name</text></g>
+      <g><rect class="entity" x="965" y="12" width="120" height="66"/><rect class="entity-head" x="965" y="12" width="120" height="27"/><text class="ename" x="1025" y="31">OHTY · Tipos empleado</text><text class="attr" x="974" y="56">Clasificación</text></g>
+      <g><rect class="entity" x="755" y="145" width="140" height="80"/><rect class="entity-head" x="755" y="145" width="140" height="27"/><text class="ename" x="825" y="164">OHEM · Empleados</text><text class="attr key" x="764" y="188">PK empID</text><text class="attr" x="764" y="202">FK userId · branch</text><text class="attr" x="764" y="216">FK salesPrson</text></g>
+      <g><rect class="entity" x="765" y="305" width="120" height="66"/><rect class="entity-head" x="765" y="305" width="120" height="27"/><text class="ename" x="825" y="324">HEM6 · Datos empleado</text><text class="attr" x="774" y="350">FK empID</text></g>
+    </svg><div class="er-legend"><b>PK</b> clave primaria · <b>FK</b> clave relacionada · 1/N cardinalidad lógica</div>
+  </section>
+
+  <section class="slide"><h2>Modelo ER: productos, precios e inventario</h2><span class="section">MODELO ER</span>
+    <svg class="er-svg" viewBox="0 0 1180 410" role="img" aria-label="Modelo entidad relación de productos e inventario">
+      <path class="rel" d="M150 185 L280 185"/><text class="cardinality" x="178" y="207">1</text><text class="cardinality" x="246" y="207">N</text><text class="rlabel" x="197" y="173">ItmsGrpCod</text>
+      <path class="rel" d="M420 165 L600 95"/><text class="cardinality" x="450" y="175">1</text><text class="cardinality" x="563" y="122">N</text><text class="rlabel" x="500" y="122">ItemCode</text>
+      <path class="rel" d="M420 205 L600 275"/><text class="cardinality" x="450" y="225">1</text><text class="cardinality" x="563" y="275">N</text><text class="rlabel" x="500" y="252">ItemCode</text>
+      <path class="rel" d="M740 275 L860 185"/><text class="cardinality" x="766" y="273">N</text><text class="cardinality" x="830" y="213">1</text><text class="rlabel" x="788" y="225">WhsCode</text>
+      <path class="rel" d="M1000 185 L1060 185"/><text class="cardinality" x="1012" y="207">N</text><text class="cardinality" x="1042" y="207">1</text><text class="rlabel" x="1006" y="173">Location</text>
+      <g><rect class="entity" x="20" y="145" width="130" height="80"/><rect class="entity-head" x="20" y="145" width="130" height="27"/><text class="ename" x="85" y="164">OITB · Grupos artículos</text><text class="attr key" x="29" y="188">PK ItmsGrpCod</text><text class="attr" x="29" y="204">ItmsGrpNam</text></g>
+      <g><rect class="entity" x="280" y="135" width="140" height="100"/><rect class="entity-head" x="280" y="135" width="140" height="27"/><text class="ename" x="350" y="154">OITM · Productos</text><text class="attr key" x="289" y="178">PK ItemCode</text><text class="attr" x="289" y="194">ItemName</text><text class="attr" x="289" y="210">FK ItmsGrpCod</text><text class="attr" x="289" y="226">CardCode proveedor</text></g>
+      <g><rect class="entity" x="600" y="55" width="140" height="80"/><rect class="entity-head" x="600" y="55" width="140" height="27"/><text class="ename" x="670" y="74">ITM1 · Precios</text><text class="attr key" x="609" y="98">PK ItemCode + PriceList</text><text class="attr" x="609" y="114">Price · Currency</text></g>
+      <g><rect class="entity" x="600" y="235" width="140" height="100"/><rect class="entity-head" x="600" y="235" width="140" height="27"/><text class="ename" x="670" y="254">OITW · Stock/bodega</text><text class="attr key" x="609" y="278">PK ItemCode + WhsCode</text><text class="attr" x="609" y="294">OnHand · OnOrder</text><text class="attr" x="609" y="310">IsCommited</text><text class="attr" x="609" y="326">U_TAI_CostoComercial</text></g>
+      <g><rect class="entity" x="860" y="140" width="140" height="90"/><rect class="entity-head" x="860" y="140" width="140" height="27"/><text class="ename" x="930" y="159">OWHS · Bodegas</text><text class="attr key" x="869" y="183">PK WhsCode</text><text class="attr" x="869" y="199">WhsName</text><text class="attr" x="869" y="215">FK Location</text></g>
+      <g><rect class="entity" x="1060" y="145" width="100" height="75"/><rect class="entity-head" x="1060" y="145" width="100" height="27"/><text class="ename" x="1110" y="164">OLCT · Localidades</text><text class="attr key" x="1069" y="188">PK Code</text><text class="attr" x="1069" y="204">Location</text></g>
+    </svg><div class="er-legend"><b>OITW</b> resuelve la relación N:M entre artículo y bodega</div>
+  </section>
+
+  <section class="slide"><h2>Flujo documental de venta</h2><span class="section">DOCUMENTOS SAP</span>
+    <div class="flow"><div class="node"><b>OQUT · Cotizaciones</b><span>QUT1 · Líneas de cotización</span></div><div class="arrow">→</div><div class="node"><b>ODRF · Borradores</b><span>DRF1 · Líneas de borrador</span></div><div class="arrow">→</div><div class="node"><b>ORDR · Órdenes de venta</b><span>RDR1 · Líneas de orden</span></div><div class="arrow">→</div><div class="node"><b>ODLN · Entregas</b><span>DLN1 · Líneas de entrega</span></div><div class="arrow">→</div><div class="node"><b>OINV · Facturas cliente</b><span>INV1 · Líneas de factura</span></div><div class="arrow">→</div><div class="node"><b>ORIN · Notas de crédito</b><span>RIN1 · Líneas de nota</span></div></div>
+    <div class="grid g3"><div class="card"><b>BaseType</b><small>Tipo de objeto origen</small></div><div class="card"><b>BaseEntry</b><small>DocEntry del origen</small></div><div class="card"><b>BaseLine</b><small>LineNum del origen</small></div></div>
+  </section>
+
+  <section class="slide"><h2>Compras e inventario conectados a la venta</h2><span class="section">DOCUMENTOS SAP</span>
+    <div class="flow"><div class="node"><b>ORDR · Órdenes de venta</b><span>RDR1 · Líneas de orden</span></div><div class="arrow">→</div><div class="node"><b>OPOR · Órdenes de compra</b><span>POR1 · Líneas de compra · BaseType 17</span></div><div class="arrow">→</div><div class="node"><b>OPDN · Entradas mercancía</b><span>Recepción de proveedor</span></div><div class="arrow">→</div><div class="node"><b>OPCH · Facturas proveedor</b><span>Documento de compra</span></div></div>
+    <h3>¿Dónde se guarda y cómo cambia el stock?</h3><div class="grid g4"><div class="card green"><b>OITW · Saldo actual</b><small>Cantidad disponible de cada producto en cada bodega</small></div><div class="card"><b>OINM · Historial</b><small>Registra cada entrada, salida o traslado que modificó el stock</small></div><div class="card"><b>OWTR / WTR1 · Traslado</b><small>Mueve productos entre bodegas; disminuye una y aumenta otra</small></div><div class="card"><b>OIGN · Entrada<br>OIGE · Salida<br>OWOR · Producción</b><small>Documentos que aumentan, disminuyen o consumen existencias</small></div></div><div class="note center"><b>Lectura del flujo:</b> la recepción de compra aumenta stock; la entrega de venta lo disminuye; una transferencia lo mueve entre bodegas. Relación por <b>ItemCode + WhsCode</b>.</div>
+  </section>
+
+  <section class="slide"><h2>Modelo ER: finanzas, pagos y cuenta corriente</h2><span class="section">MODELO ER</span>
+    <svg class="er-svg" viewBox="0 0 1120 410" role="img" aria-label="Modelo entidad relación financiero">
+      <path class="rel" d="M150 185 L265 185"/><text class="cardinality" x="177" y="207">1</text><text class="cardinality" x="232" y="207">N</text><text class="rlabel" x="184" y="173">ShortName</text>
+      <path class="rel" d="M405 165 L520 95"/><text class="cardinality" x="430" y="171">N</text><text class="cardinality" x="488" y="122">1</text><text class="rlabel" x="450" y="122">TransId</text>
+      <path class="rel" d="M405 205 L520 285"/><text class="cardinality" x="430" y="225">N</text><text class="cardinality" x="488" y="280">1</text><text class="rlabel" x="450" y="258">Account</text>
+      <path class="rel" d="M150 205 L85 305"/><text class="cardinality" x="139" y="234">1</text><text class="cardinality" x="96" y="286">N</text><text class="rlabel" x="100" y="260">CardCode</text>
+      <path class="rel" d="M700 95 L820 95"/><text class="cardinality" x="727" y="117">1</text><text class="cardinality" x="788" y="117">N</text><text class="rlabel" x="742" y="83">DocNum</text>
+      <path class="rel" d="M700 285 L820 285"/><text class="cardinality" x="727" y="307">1</text><text class="cardinality" x="788" y="307">N</text><text class="rlabel" x="742" y="273">DocNum</text>
+      <path class="rel" d="M960 95 L1030 185"/><text class="cardinality" x="978" y="122">N</text><text class="cardinality" x="1013" y="169">1</text><path class="rel" d="M960 285 L1030 205"/><text class="cardinality" x="978" y="277">N</text><text class="cardinality" x="1013" y="222">1</text>
+      <g><rect class="entity" x="20" y="145" width="130" height="80"/><rect class="entity-head" x="20" y="145" width="130" height="27"/><text class="ename" x="85" y="164">OCRD · Clientes/prov.</text><text class="attr key" x="29" y="188">PK CardCode</text><text class="attr" x="29" y="204">CardName</text></g>
+      <g><rect class="entity" x="265" y="135" width="140" height="100"/><rect class="entity-head" x="265" y="135" width="140" height="27"/><text class="ename" x="335" y="154">JDT1 · Líneas contables</text><text class="attr key" x="274" y="178">PK TransId + Line_ID</text><text class="attr" x="274" y="194">FK Account</text><text class="attr" x="274" y="210">ShortName</text><text class="attr" x="274" y="226">BalDueDeb/Cred</text></g>
+      <g><rect class="entity" x="520" y="55" width="180" height="80"/><rect class="entity-head" x="520" y="55" width="180" height="27"/><text class="ename" x="610" y="74">OJDT · Asientos contables</text><text class="attr key" x="529" y="98">PK TransId</text><text class="attr" x="529" y="114">RefDate · TransType</text></g>
+      <g><rect class="entity" x="520" y="245" width="180" height="80"/><rect class="entity-head" x="520" y="245" width="180" height="27"/><text class="ename" x="610" y="264">OACT · Plan de cuentas</text><text class="attr key" x="529" y="288">PK AcctCode</text><text class="attr" x="529" y="304">AcctName</text></g>
+      <g><rect class="entity" x="20" y="305" width="130" height="80"/><rect class="entity-head" x="20" y="305" width="130" height="27"/><text class="ename" x="85" y="324">OINV/ORIN · Fact./NC</text><text class="attr key" x="29" y="348">PK DocEntry</text><text class="attr" x="29" y="364">FK CardCode</text></g>
+      <g><rect class="entity" x="820" y="55" width="140" height="80"/><rect class="entity-head" x="820" y="55" width="140" height="27"/><text class="ename" x="890" y="74">RCT2 · Docs. pago recibido</text><text class="attr" x="829" y="98">Pago recibido</text><text class="attr" x="829" y="114">DocEntry · InvType</text></g>
+      <g><rect class="entity" x="820" y="245" width="140" height="80"/><rect class="entity-head" x="820" y="245" width="140" height="27"/><text class="ename" x="890" y="264">VPM2 · Docs. pago efectuado</text><text class="attr" x="829" y="288">Pago efectuado</text><text class="attr" x="829" y="304">DocEntry · InvType</text></g>
+      <g><rect class="entity" x="1015" y="145" width="100" height="80"/><rect class="entity-head" x="1015" y="145" width="100" height="27"/><text class="ename" x="1065" y="164">Docs. de venta</text><text class="attr" x="1023" y="190">OINV · Facturas</text><text class="attr" x="1023" y="207">ORIN · Notas créd.</text></g>
+    </svg><div class="er-legend">La vista <b>TAI_VW_CtaCte_Cliente</b> consolida estas relaciones</div>
+  </section>
+
+  <section class="slide"><h2>Autorizaciones y matriz de descuentos</h2><span class="section">REGLAS COMERCIALES</span>
+    <div class="grid g3"><div class="card blue"><b>ODRF · Borradores SAP</b><small>Documentos pendientes de autorización</small></div><div class="card orange"><b>tai_tb_autorizaciones · Estados</b><small>Contadores y mensajes · DocEntry</small></div><div class="card orange"><b>tai_tb_dispatcher · Solicitudes</b><small>Autorizador titular y backup</small></div></div>
+    <div class="flow discount-flow"><div class="node"><b>matriz_descto_grupo</b><span>Grupos comerciales</span></div><div class="arrow">→</div><div class="node"><b>matriz_descto_subgrupo</b><span>Subgrupos comerciales</span></div><div class="arrow">→</div><div class="node"><b>matriz_descto_linea</b><span>Líneas comerciales</span></div><div class="arrow">→</div><div class="node"><b>matriz_descto_resumen</b><span>Descuento producto/proveedor</span></div><div class="arrow">→</div><div class="node"><b>matriz_descto_detalle</b><span>Sucursal y autorizador</span></div></div>
+    <div class="note center">Crédito · deuda vencida · protestos · margen · costo · tasa</div>
+  </section>
+
+  <section class="slide"><h2>Cadena de cálculo de comisiones</h2><span class="section">ANALÍTICA</span>
+    <div class="flow"><div class="node"><b>Ventas</b><span>CabVtas + DetVtas</span></div><div class="arrow">→</div><div class="node"><b>Base</b><span>TAI_VW_COMISION</span></div><div class="arrow">→</div><div class="node"><b>Detalle</b><span>comision_detalle</span></div><div class="arrow">→</div><div class="node"><b>Provisorio</b><span>Carga del periodo</span></div><div class="arrow">→</div><div class="node"><b>Liquidación</b><span>Resumen + detalle</span></div></div>
+    <ul><li>Usa facturas y notas de crédito como origen.</li><li>Combina margen, costo por bodega, línea, sucursal y vendedor.</li><li>Aplica reglas generales, específicas, excluyentes y políticas UDT.</li></ul>
+  </section>
+
+  <section class="slide"><h2>Campos de usuario en datos maestros</h2><span class="section">CAMPOS UDF</span>
+    <div class="udf-grid">
+      <div class="udf-card"><h3>OCRD · Clientes/proveedores</h3><span class="purpose">Condiciones comerciales del socio</span><ul class="udf-list"><li>U_TAI_Acuerdo</li><li>U_TAI_Categoria</li><li>U_TAI_LinCredCom</li></ul></div>
+      <div class="udf-card"><h3>OITM · Productos</h3><span class="purpose">Características comerciales del artículo</span><ul class="udf-list"><li>U_TAI_Capacidad</li><li>U_TAI_DiasPago</li><li>U_TAI_Envase</li><li>U_TAI_IngrActivo</li><li>U_TAI_UndMed</li></ul></div>
+      <div class="udf-card"><h3>OITW · Producto por bodega</h3><span class="purpose">Costo, precio y stock por almacén</span><ul class="udf-list"><li>U_TAI_CostoComercial</li><li>U_TAI_CostoRep</li><li>U_TAI_Moneda</li><li>U_TAI_PrecioVenta</li><li>U_TAI_StockReal</li></ul></div>
+    </div>
+    <div class="note"><b>Lectura:</b> son columnas agregadas por la implementación a tablas estándar SAP Business One. El prefijo <b>U_</b> identifica un campo definido por usuario.</div>
+  </section>
+
+  <section class="slide"><h2>Campos de usuario en cabeceras documentales</h2><span class="section">CAMPOS UDF</span>
+    <table class="udf-table"><thead><tr><th style="width:28%">Tabla SAP</th><th>Campos de usuario detectados</th></tr></thead><tbody>
+      <tr><td><b>ODRF · Borradores</b><br><b>ORDR · Órdenes de venta</b><br><b>OPOR · Órdenes de compra</b><br><b>OINV · Facturas cliente</b></td><td><code>U_Estado_Aut</code> · <code>U_TAI_ComentarioOC</code> · <code>U_TAI_CondicionPagOC</code> · <code>U_TAI_Despacho</code> · <code>U_TAI_Emision</code> · <code>U_TAI_GlosaEspecial</code> · <code>U_TAI_MonedaProducto</code> · <code>U_TAI_Motivo</code> · <code>U_TAI_NotaPedidoC</code> · <code>U_TAI_TipoVenta</code></td></tr>
+      <tr><td><b>ODRF · Borradores</b></td><td><code>U_TAI_BloqueaGD</code> · <code>U_TAI_GuiaDespacho</code></td></tr>
+      <tr><td><b>ORDR · Órdenes de venta</b></td><td><code>U_TAI_GuiaDespacho</code> · <code>U_VK_CertOrigen</code></td></tr>
+      <tr><td><b>OINV · Facturas cliente</b></td><td><code>U_TAI_DocExitoso</code> · <code>U_TAI_FactElec</code> · <code>U_TAI_Imprimir</code> · <code>U_TAI_cuartacopia</code></td></tr>
+      <tr><td><b>ORIN · Notas de crédito</b></td><td><code>U_TAI_cuartacopia</code> · <code>U_TAI_TipoVenta</code></td></tr>
+    </tbody></table>
+    <div class="note" style="margin-top:12px;padding:10px"><b>Criterio:</b> asociación confirmada por SQL o por asignación directa mediante SAP DI API.</div>
+  </section>
+
+  <section class="slide"><h2>Campos de usuario en líneas documentales</h2><span class="section">CAMPOS UDF</span>
+    <table class="udf-table"><thead><tr><th style="width:27%">Tabla SAP</th><th>Campos de usuario detectados</th></tr></thead><tbody>
+      <tr><td><b>RDR1 · Líneas de orden de venta</b></td><td><code>U_TAI_CardCode</code> · <code>U_TAI_CondicionProducto</code> · <code>U_TAI_CostoComercial</code> · <code>U_TAI_CostoReposicio</code> · <code>U_TAI_Descuento</code> · <code>U_TAI_DiasCompra</code> · <code>U_TAI_FechaEntrega</code> · <code>U_TAI_Flete</code> · <code>U_TAI_Interes</code> · <code>U_TAI_MonedaCosto</code> · <code>U_TAI_MonedaPF</code> · <code>U_TAI_MotivoProducto</code> · <code>U_TAI_PrcDsctoMax</code> · <code>U_TAI_PreCompraPF</code> · <code>U_TAI_PrecioCompraO</code> · <code>U_TAI_PUFinal</code> · <code>U_TAI_TasaInteres</code></td></tr>
+      <tr><td><b>DRF1 · Líneas de borrador</b></td><td><code>U_TAI_FechaEntrega</code> · <code>U_TAI_ImpteComis</code> · <code>U_TAI_Interes</code> y campos comerciales copiados desde/hacia <b>RDR1</b></td></tr>
+      <tr><td><b>POR1 · Líneas de orden de compra</b></td><td><code>U_TAI_CardCode</code> · <code>U_TAI_CondicionProducto</code> · <code>U_TAI_CostoComercial</code> · <code>U_TAI_PUFinal</code></td></tr>
+      <tr><td><b>INV1 · Líneas de factura</b><br><b>RIN1 · Líneas de nota de crédito</b></td><td><code>U_TAI_CostoComercial</code> · <code>U_TAI_DescripcionAd</code> · <code>U_TAI_DiasCompra</code> · <code>U_TAI_ImpteComis</code> · <code>U_TAI_Interes</code> · <code>U_TAI_MonedaCosto</code> · <code>U_TAI_PrecioCompraO</code> · <code>U_TAI_TasaInteres</code></td></tr>
+    </tbody></table>
+    <div class="note" style="margin-top:10px;padding:9px">Los UDF complementan <b>ItemCode</b>, <b>Quantity</b>, <b>Price</b>, <b>WhsCode</b> y <b>BaseEntry/BaseLine</b>.</div>
+  </section>
+
+  <section class="slide"><h2>Tablas definidas por usuario SAP (1 de 2)</h2><span class="section">TABLAS UDT</span>
+    <table class="udt-table"><thead><tr><th>Tabla física</th><th>Nombre o función</th><th>Campos detectados</th></tr></thead><tbody>
+      <tr><td>@TAI_AUT_BM_BC</td><td>Umbrales de autorización comercial</td><td><code>U_TAI_OpCom</code> · <code>U_TAI_BM1</code> · <code>U_TAI_BM2</code> · <code>U_TAI_BC1</code> · <code>U_TAI_BC2</code></td></tr>
+      <tr><td>@TAI_AUT_BM_BC1</td><td>Autorizadores por línea y sucursal</td><td><code>U_TAI_User</code> · <code>U_TAI_CodAut</code> · <code>U_TAI_Backup</code> · <code>U_TAI_Zona</code> · <code>U_TAI_Sucursal</code> · <code>U_TAI_Cargo</code></td></tr>
+      <tr><td>@TAI_CIERRE_MESD</td><td>Detalle de cierre mensual</td><td><code>U_TAI_Activo</code> · <code>U_TAI_Objeto</code></td></tr>
+      <tr><td>@TAI_CUENTASAPXSUC</td><td>Credenciales SAP por sucursal</td><td><code>U_TAI_User</code> · <code>U_TAI_Pass</code> · <code>U_TAI_Sucursal</code></td></tr>
+      <tr><td>@TAI_FE_IMPRESORA</td><td>Impresoras de facturación electrónica</td><td><code>U_TAI_Sucursal</code> · <code>U_TAI_NameImpresora</code> · <code>U_TAI_IpImpresora</code></td></tr>
+      <tr><td>@TAI_FLETE_ESPECIAL</td><td>Flete especial por localidad/bodega</td><td><code>U_TAI_CostoXBodega</code></td></tr>
+      <tr><td>@TAI_INGACTIVO</td><td>Ingredientes activos</td><td><b>Code</b> · <b>Name</b> (sin UDF referenciado)</td></tr>
+      <tr><td>@TAI_OCPCC</td><td>Cabecera de asignación cliente/vendedor</td><td><b>Code</b> · <b>Name</b> (sin UDF referenciado)</td></tr>
+      <tr><td>@TAI_OCPCD</td><td>Detalle de asignación cliente/vendedor</td><td><code>U_SlpCode</code> · <code>U_SlpName</code></td></tr>
+    </tbody></table>
+    <div class="note" style="margin-top:10px;padding:9px"><b>UDT:</b> tabla creada dentro de SAP Business One. Conserva columnas estándar como <b>Code</b> y <b>Name</b>, además de campos definidos por usuario.</div>
+  </section>
+
+  <section class="slide"><h2>Tablas definidas por usuario SAP (2 de 2)</h2><span class="section">TABLAS UDT</span>
+    <table class="udt-table"><thead><tr><th>Tabla física</th><th>Nombre o función</th><th>Campos detectados</th></tr></thead><tbody>
+      <tr><td>@TAI_P_MES</td><td>Catálogo de meses</td><td><b>Code</b> · <b>Name</b> (sin UDF referenciado)</td></tr>
+      <tr><td>@TAI_PPLIN</td><td>Política comercial por línea</td><td><code>U_TAI_PorcFlete</code> · <code>U_PrctBajoMargen</code> · <code>U_PrctComisVtas</code> · <code>U_PrctMargenMin</code></td></tr>
+      <tr><td>@TAI_PPLINSUC</td><td>Política por línea y sucursal</td><td><code>U_SucCodigo</code> · <code>U_PrctComisVtas</code> · <code>U_PrctMargenMin</code></td></tr>
+      <tr><td>@TAI_PROV_PREM</td><td>Proveedores con tratamiento de premio</td><td><code>U_TAI_PorcCom</code></td></tr>
+      <tr><td>@TAI_SEMILLASD</td><td>Atributos de semillas</td><td><code>U_TAI_DescSemillas</code> · <code>U_TAI_Bloqueo</code></td></tr>
+      <tr><td>@VK_OCCL</td><td>Regiones comerciales personalizadas</td><td><code>U_VK_RegionNum</code> · <code>U_VK_Region</code></td></tr>
+      <tr><td>@VK_OPAR</td><td>Parámetros numéricos personalizados</td><td><code>U_ValorNumerico</code></td></tr>
+      <tr><td>@VK_WHUD</td><td>Usuarios y bodegas autorizadas</td><td><code>U_WhsCode</code> · <code>U_WhsName</code> · <code>U_DfltWhs</code></td></tr>
+    </tbody></table>
+    <div class="note" style="margin-top:10px;padding:9px">Los nombres funcionales se infieren del uso confirmado en los 56 procedimientos activos, vistas y código de integración.</div>
+  </section>
+
+  <section class="slide"><h2>Inventario técnico detectado</h2><span class="section">RESUMEN</span>
+    <div class="grid g4"><div class="card blue"><b>68 aprox.</b><small>Tablas estándar SAP</small></div><div class="card green"><b>17</b><small>Tablas UDT @...</small></div><div class="card orange"><b>30 aprox.</b><small>Tablas propias/carga</small></div><div class="card"><b>56</b><small>Procedimientos utilizados</small></div></div>
+    <div class="grid g2" style="margin-top:22px"><div class="card"><b>8 vistas analizadas</b><small>Documentos, cuenta corriente y comisiones</small></div><div class="card"><b>3 funciones analizadas</b><small>Precio, monitor OV y agrupación</small></div></div>
+    <table class="compact" style="margin-top:14px"><thead><tr><th>Tipo</th><th>Ejemplos de tablas y nombres funcionales</th></tr></thead><tbody><tr><td>SAP</td><td>OCRD · Clientes/proveedores · OITM · Productos · ORDR · Órdenes de venta · OINV · Facturas cliente</td></tr><tr><td>UDT SAP</td><td>@TAI_* · Tablas definidas por usuario para reglas, políticas y configuración</td></tr><tr><td>Propias</td><td>tai_tb_autorizaciones · Estados de autorización · matriz_descto_* · Matriz de descuentos · comision_* · Comisiones</td></tr></tbody></table>
+    <div class="note center" style="margin-top:12px;padding:9px">El inventario representa objetos usados por el sistema, no la totalidad del esquema SAP.</div>
+  </section>
+
+</main>
+<div class="counter" id="counter"></div><div class="controls"><button id="prev" title="Anterior">←</button><button id="full" title="Pantalla completa">⛶</button><button id="next" title="Siguiente">→</button></div>
+<script>
+const slides=[...document.querySelectorAll('.slide')];let current=0;const counter=document.getElementById('counter');
+document.querySelectorAll('.er-svg').forEach(svg=>[...svg.querySelectorAll('.cardinality,.rlabel')].forEach(label=>svg.appendChild(label)));
+slides.forEach((s,i)=>{s.insertAdjacentHTML('beforeend',`<span class="foot">Sistema de Ventas · SAP Business One</span><span class="page">${i+1}</span>`)});
+slides[0].querySelectorAll('.foot,.page').forEach(x=>x.remove());
+function show(n){current=(n+slides.length)%slides.length;slides.forEach((s,i)=>s.classList.toggle('active',i===current));counter.textContent=`${current+1} / ${slides.length}`}
+document.getElementById('prev').onclick=()=>show(current-1);document.getElementById('next').onclick=()=>show(current+1);document.getElementById('full').onclick=()=>document.documentElement.requestFullscreen?.();
+addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key))show(current+1);if(['ArrowLeft','PageUp'].includes(e.key))show(current-1);if(e.key==='Home')show(0);if(e.key==='End')show(slides.length-1);if(e.key.toLowerCase()==='f')document.documentElement.requestFullscreen?.()});show(0);
+</script>
+</body>
+</html>

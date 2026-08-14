@@ -1,0 +1,8 @@
+# Preserve legacy and historical evidence byte-for-byte without applying
+# whitespace policy intended for new product code and documentation.
+/ventas/** -whitespace
+/wssap/** -whitespace
+/sps.sql -whitespace
+/sqls2.sql -whitespace
+/sqls3.sql -whitespace
+/sqls4.sql -whitespace

@@ -1,0 +1,13 @@
+.vs/
+
+**/bin/
+**/obj/
+**/node_modules/
+**/dist/
+
+*.user
+*.suo
+*.tmp
+*.log
+*.cache
+*.pdb

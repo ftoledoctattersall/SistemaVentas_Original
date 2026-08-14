@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="SistemaVentasWeb_cl_agroinsumos_wssap_test_srvOrdenVenta" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://wssap_test.agroinsumos.cl/Services/srvOrdenVenta.asmx</Value>
+    </Setting>
+    <Setting Name="SistemaVentasWeb_com_azurian_cloudtattersallqa_VisualizacionService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://cloudtattersallqa.azurian.com/dte-ws-services/services/VisualizacionService.VisualizacionServiceHttpSoap11Endpoint/</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

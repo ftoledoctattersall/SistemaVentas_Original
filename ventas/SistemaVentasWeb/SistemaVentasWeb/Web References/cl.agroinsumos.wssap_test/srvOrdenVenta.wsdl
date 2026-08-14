@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="RegistrarBorradorVenta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intUsuario" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTipoVenta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCliente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strMonedaPago" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOrdenCompra" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intVendedor" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intOperador" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFechaOrdenVenta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFechaEntrega" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intSerie" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intTipoDespacho" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strNotaPedido" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCodigoPlazoVenta" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFechaVencimiento" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCodigoPlazoCompra" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDireccionFactura" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDireccionDespacho" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strComentario1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strComentario2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strComentario3" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intMotivo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strEmision" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strGuiaDespacho" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPedido" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarBorradorVentaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegistrarBorradorVentaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarOrdenVenta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intUsuario" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTipoVenta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCliente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strMonedaPago" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOrdenCompra" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intVendedor" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intOperador" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFechaOrdenVenta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFechaEntrega" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intSerie" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intTipoDespacho" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strNotaPedido" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCodigoPlazoVenta" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFechaVencimiento" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intCodigoPlazoCompra" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDireccionFactura" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDireccionDespacho" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strComentario1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strComentario2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strComentario3" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="intMotivo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strEmision" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strGuiaDespacho" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPedido" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarOrdenVentaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegistrarOrdenVentaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelarOrdenVenta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="intDocCodigo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="intUsuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelarOrdenVentaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CancelarOrdenVentaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarOrdenVentaEnBorradorVenta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intUsuario" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intDocEntry" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarOrdenVentaEnBorradorVentaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegistrarOrdenVentaEnBorradorVentaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RegistrarBorradorVentaSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarBorradorVenta" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarBorradorVentaSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarBorradorVentaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarOrdenVentaSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarOrdenVenta" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarOrdenVentaSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarOrdenVentaResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelarOrdenVentaSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelarOrdenVenta" />
+  </wsdl:message>
+  <wsdl:message name="CancelarOrdenVentaSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelarOrdenVentaResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarOrdenVentaEnBorradorVentaSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarOrdenVentaEnBorradorVenta" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarOrdenVentaEnBorradorVentaSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarOrdenVentaEnBorradorVentaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="srvOrdenVentaSoap">
+    <wsdl:operation name="RegistrarBorradorVenta">
+      <wsdl:input message="tns:RegistrarBorradorVentaSoapIn" />
+      <wsdl:output message="tns:RegistrarBorradorVentaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarOrdenVenta">
+      <wsdl:input message="tns:RegistrarOrdenVentaSoapIn" />
+      <wsdl:output message="tns:RegistrarOrdenVentaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelarOrdenVenta">
+      <wsdl:input message="tns:CancelarOrdenVentaSoapIn" />
+      <wsdl:output message="tns:CancelarOrdenVentaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarOrdenVentaEnBorradorVenta">
+      <wsdl:input message="tns:RegistrarOrdenVentaEnBorradorVentaSoapIn" />
+      <wsdl:output message="tns:RegistrarOrdenVentaEnBorradorVentaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="srvOrdenVentaSoap" type="tns:srvOrdenVentaSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegistrarBorradorVenta">
+      <soap:operation soapAction="http://tempuri.org/RegistrarBorradorVenta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarOrdenVenta">
+      <soap:operation soapAction="http://tempuri.org/RegistrarOrdenVenta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelarOrdenVenta">
+      <soap:operation soapAction="http://tempuri.org/CancelarOrdenVenta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarOrdenVentaEnBorradorVenta">
+      <soap:operation soapAction="http://tempuri.org/RegistrarOrdenVentaEnBorradorVenta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="srvOrdenVentaSoap12" type="tns:srvOrdenVentaSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegistrarBorradorVenta">
+      <soap12:operation soapAction="http://tempuri.org/RegistrarBorradorVenta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarOrdenVenta">
+      <soap12:operation soapAction="http://tempuri.org/RegistrarOrdenVenta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelarOrdenVenta">
+      <soap12:operation soapAction="http://tempuri.org/CancelarOrdenVenta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarOrdenVentaEnBorradorVenta">
+      <soap12:operation soapAction="http://tempuri.org/RegistrarOrdenVentaEnBorradorVenta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="srvOrdenVenta">
+    <wsdl:port name="srvOrdenVentaSoap" binding="tns:srvOrdenVentaSoap">
+      <soap:address location="http://wssap_test.agroinsumos.cl/Services/srvOrdenVenta.asmx" />
+    </wsdl:port>
+    <wsdl:port name="srvOrdenVentaSoap12" binding="tns:srvOrdenVentaSoap12">
+      <soap12:address location="http://wssap_test.agroinsumos.cl/Services/srvOrdenVenta.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
