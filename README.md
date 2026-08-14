@@ -12,7 +12,7 @@ Este repositorio reúne el sistema legado de referencia, la normativa de desarro
 
 ## Estado
 
-Nuevo POS — FASE 0C
+Nuevo POS — FASE 1A
 
 ## Inicio
 

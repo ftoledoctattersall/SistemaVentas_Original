@@ -25,7 +25,21 @@ Backend:
 
 - ASP.NET Core;
 - .NET 10;
-- API mínima con `GET /health`.
+- `Pos.Api`, con `GET /health` y `GET /api/context/empresa`;
+- `Pos.Application`, con el caso de uso técnico `ObtenerEmpresaDemo`;
+- `Pos.Domain`, con la entidad `Empresa`.
+
+La dirección implementada de dependencias es:
+
+```text
+Pos.Api
+   ↓
+Pos.Application
+   ↓
+Pos.Domain
+```
+
+`Pos.Domain` no referencia otras capas POS. `Pos.Application` sólo referencia `Pos.Domain`, y `Pos.Api` referencia `Pos.Application`.
 
 Frontend:
 
@@ -33,7 +47,9 @@ Frontend:
 - TypeScript;
 - Vite.
 
-Actualmente sólo existen `Pos.Api` y `pos-web`. No se han creado capas adicionales, persistencia ni integraciones.
+La resolución actual de empresa es un baseline técnico determinista. La resolución real de empresa todavía NO está implementada.
+
+No existen `Pos.Infrastructure`, `Pos.Integrations`, persistencia ni integraciones externas.
 
 El quality baseline está implementado mediante un proyecto de tests de API y pruebas de componentes del frontend. Testing no constituye una capa arquitectónica.
 
@@ -46,7 +62,7 @@ React
    ↓
 ASP.NET Core API
    ↓
-Application / Domain
+Application / Domain (implementados inicialmente)
    ↓
 Infrastructure / Integrations
    ↓

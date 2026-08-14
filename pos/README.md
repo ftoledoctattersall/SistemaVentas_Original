@@ -10,7 +10,7 @@ El sistema legado existe sólo como referencia funcional, evidencia, apoyo de au
 
 ## Estado
 
-FASE 0C — Quality baseline y gobierno técnico
+FASE 1A — Empresa y arquitectura mínima de dominio
 
 ## Stack inicial
 
@@ -19,7 +19,9 @@ FASE 0C — Quality baseline y gobierno técnico
 
 ## Exclusiones actuales
 
-Todavía no existen dominio, persistencia, SAP, AWS, autenticación, reglas comerciales ni autorizaciones.
+Existe una primera arquitectura `Pos.Api → Pos.Application → Pos.Domain` y el concepto mínimo `Empresa`. La resolución real de empresa todavía NO está implementada.
+
+Todavía no existen persistencia, SAP, AWS, autenticación, reglas comerciales ni autorizaciones.
 
 ## Referencias
 

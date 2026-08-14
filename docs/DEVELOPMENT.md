@@ -37,7 +37,18 @@ npm run build
 npm test
 ```
 
-El resultado mínimo aceptable es build y tests en PASS, con `0 errores` y `0 advertencias` en los proyectos .NET nuevos. Los warnings se tratan como errores exclusivamente en `Pos.Api` y `Pos.Api.Tests`; esta decisión no afecta al legado.
+El resultado mínimo aceptable es build y tests en PASS, con `0 errores` y `0 advertencias` en los proyectos .NET nuevos. Los warnings se tratan como errores en todos los proyectos bajo `pos/backend`; esta decisión no afecta al legado.
+
+Los proyectos backend actuales son:
+
+- `src/Pos.Api`;
+- `src/Pos.Application`;
+- `src/Pos.Domain`;
+- `tests/Pos.Api.Tests`;
+- `tests/Pos.Application.Tests`;
+- `tests/Pos.Domain.Tests`.
+
+Las referencias productivas deben conservar la dirección `Pos.Api → Pos.Application → Pos.Domain`. Los tests de cada capa están ubicados bajo `pos/backend/tests/`.
 
 No se exige ejecutar ambos stacks cuando una fase afecta exclusivamente uno, salvo que exista una razón explícita.
 
