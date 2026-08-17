@@ -1,0 +1,32 @@
+{
+  "source": "logos-colores/documentacion_inicial.md",
+  "eett": {
+    "header": [
+      "#395466",
+      "#263C4A"
+    ],
+    "otherSections": [
+      "#627784",
+      "#D1D4D6",
+      "#E2E2E3"
+    ]
+  },
+  "agroinsumos": {
+    "initialColors": [
+      "#93D750",
+      "#8CB85F",
+      "#628341",
+      "#1A5A98",
+      "#103A62",
+      "#6093A8",
+      "#426472",
+      "#477FB8",
+      "#315981",
+      "#5C8798",
+      "#41606C",
+      "#5F92A7",
+      "#426472",
+      "#627681"
+    ]
+  }
+}

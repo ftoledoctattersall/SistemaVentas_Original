@@ -9,5 +9,6 @@
 - frontend/react
 - frontend/material-ui
 - frontend/frontend-design
+- frontend/design-system
 - cloud/aws-lambda
 - integration/sap
