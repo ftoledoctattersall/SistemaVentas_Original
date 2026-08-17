@@ -72,6 +72,14 @@ Consultar `skills/README.md` para su gobierno detallado.
 
 ---
 
+## Agents especializados
+
+Los futuros subagentes se rigen por `agents/README.md`.
+
+Un Agent organiza la ejecución de una responsabilidad delimitada. No puede inventar requisitos o arquitectura, redefinir Rules, activar Skills ni debilitar Security o Engineering.
+
+---
+
 # Restricciones permanentes
 
 El agente nunca deberá:

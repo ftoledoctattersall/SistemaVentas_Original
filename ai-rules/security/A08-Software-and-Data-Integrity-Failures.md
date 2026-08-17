@@ -63,8 +63,8 @@ Consultar además cuando corresponda:
 
 Consultar también cuando corresponda:
 
-- Dependencies.md
-- Testing.md
+- engineering/Dependencies.md
+- engineering/Testing.md
 
 ---
 

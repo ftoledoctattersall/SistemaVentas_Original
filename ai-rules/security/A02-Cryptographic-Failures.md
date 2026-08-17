@@ -59,8 +59,8 @@ Consultar además cuando corresponda:
 
 Consultar también cuando corresponda:
 
-- Authentication.md
-- Dependencies.md
+- engineering/Authentication.md
+- engineering/Dependencies.md
 
 ---
 

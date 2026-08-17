@@ -54,6 +54,8 @@ Engineering
 Skills
 
 Templates
+
+Agents
 ```
 
 ---
@@ -112,16 +114,17 @@ Define estándares generales de ingeniería de software.
 
 Incluye los siguientes estándares:
 
-- API.md
-- Database.md
-- Validation.md
-- Error-Handling.md
-- Logging.md
-- Dependencies.md
-- Testing.md
-- Authentication.md
-- Authorization.md
-- Naming.md
+- `engineering/Architecture.md`
+- `engineering/API.md`
+- `engineering/Database.md`
+- `engineering/Validation.md`
+- `engineering/Error-Handling.md`
+- `engineering/Logging.md`
+- `engineering/Dependencies.md`
+- `engineering/Testing.md`
+- `engineering/Authentication.md`
+- `engineering/Authorization.md`
+- `engineering/Naming.md`
 
 ---
 
@@ -139,6 +142,14 @@ Consultar:
 
 - `skills/README.md` — gobierno del subsistema.
 - `skills/SKILLS-INDEX.md` — catálogo informativo; no activa skills.
+
+---
+
+## Agents
+
+Define el contrato de futuros subagentes especializados. Un Agent es un rol de ejecución que utiliza Rules aplicables y Skills activas; no constituye una fuente normativa ni activa skills.
+
+Consultar `agents/README.md`.
 
 ---
 
@@ -217,7 +228,8 @@ Ejemplo:
 |---------|--------|
 | Security | ✅ v1.0 |
 | Engineering | ✅ v1.0 |
-| Skills | Infraestructura v1; catálogo inicial vacío |
+| Skills | Infraestructura v1; catálogo inicial con `frontend/frontend-design` |
+| Agents | Contrato inicial; sin agentes individuales |
 | Templates | 🚧 En construcción |
 
 ---

@@ -57,8 +57,8 @@ Consultar además cuando corresponda:
 
 Consultar también cuando corresponda:
 
-- Authentication.md
-- Logging.md
+- engineering/Authentication.md
+- engineering/Logging.md
 
 ---
 

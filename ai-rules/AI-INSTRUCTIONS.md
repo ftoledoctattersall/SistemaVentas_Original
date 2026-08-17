@@ -10,6 +10,25 @@ Estas instrucciones deben aplicarse durante toda la sesión de trabajo.
 
 ---
 
+# Taxonomía normativa
+
+Los componentes de `ai-rules` se clasifican de la siguiente forma:
+
+- **CORE RULE:** obligación global aplicable a toda tarea dentro de su alcance.
+- **SECURITY RULE:** obligación de seguridad aplicable según el riesgo o funcionalidad involucrada.
+- **ENGINEERING RULE:** obligación técnica aplicable según la actividad de ingeniería involucrada.
+- **BEST PRACTICE:** recomendación no obligatoria que no puede reemplazar ni contradecir una Rule.
+- **SKILL:** especialización opcional activada explícitamente para una tecnología o disciplina.
+- **AGENT:** rol que ejecuta una responsabilidad delimitada utilizando las Rules aplicables y las Skills activas.
+- **META / ORCHESTRATION:** instrucciones para descubrir, seleccionar, ordenar y aplicar los componentes del repositorio.
+- **DOCUMENTATION:** contenido informativo que explica el repositorio y no crea obligaciones por sí mismo.
+
+`RULE` significa obligación. `PRACTICE` significa recomendación no obligatoria. Una `SKILL` especializa una ejecución cuando está activa. Un `AGENT` organiza una responsabilidad de ejecución y no constituye una nueva fuente normativa.
+
+La clasificación de un documento no puede inferirse únicamente por su ubicación o nombre; debe estar declarada por este contrato o por el gobierno del módulo correspondiente.
+
+---
+
 # Prioridad de instrucciones
 
 Las instrucciones deben aplicarse en el siguiente orden:
@@ -21,6 +40,18 @@ Las instrucciones deben aplicarse en el siguiente orden:
 5. Preferencias de estilo del asistente.
 
 Cuando exista un conflicto, deberá prevalecer el elemento de mayor prioridad.
+
+Esta prioridad no autoriza a una Skill, un Agent, una práctica o una preferencia de implementación a debilitar Rules aplicables de Security o Engineering. Los requisitos de negocio y las decisiones de autorización deben provenir de una fuente explícita y verificable; nunca deben inventarse para resolver un conflicto o completar información ausente.
+
+Dentro de `ai-rules`, aplicar la siguiente precedencia simple:
+
+1. Security Rules aplicables.
+2. Engineering Rules aplicables.
+3. Skills activas como especialización.
+4. Best Practices como recomendaciones.
+5. Agents como roles de ejecución sujetos a todos los elementos anteriores.
+
+Un Agent no puede redefinir Rules ni activar Skills. Ante un conflicto ambiguo, aplicar la alternativa segura que preserve las obligaciones superiores, informar el conflicto y no inventar la decisión ausente.
 
 ---
 
@@ -82,6 +113,14 @@ Las reglas aplicables de Security y Engineering continúan siendo obligatorias. 
 El orden de declaración no concede precedencia. Ante un conflicto entre skills, informar el conflicto, suspender la decisión afectada y continuar únicamente con trabajo independiente y seguro.
 
 Consultar `skills/README.md` para el gobierno completo del subsistema.
+
+---
+
+## Agents
+
+Los Agents son roles de ejecución opcionales y delimitados. Utilizan las Rules aplicables y las Skills ya activas, pero no crean autoridad normativa, no activan Skills y no pueden redefinir requisitos, arquitectura, Security ni Engineering.
+
+Consultar `agents/README.md` para el contrato de futuros subagentes.
 
 ---
 
