@@ -16,3 +16,5 @@ La presencia de una skill en este índice sólo indica que está disponible. La 
 - `backend/dotnet` — General .NET and C# backend specialization for runtime behavior, dependency injection, configuration, integrations, observability, and testing.
 - `backend/ef-core` — Entity Framework Core persistence specialization for DbContext lifecycle, tracking, queries, transactions, concurrency, migrations, raw SQL, performance, and testing.
 - `frontend/frontend-design` — Framework-agnostic interface design rules for observable states, action feedback, adaptable layouts, and basic interaction accessibility.
+- `frontend/material-ui` — Material UI specialization for theming, responsive layout, public component APIs, styling, accessibility, data views, and internationalization readiness.
+- `frontend/react` — React and TypeScript specialization for pure components, Hooks, Effects, state, rendering, asynchronous UI, forms, and maintainability.
