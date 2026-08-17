@@ -80,7 +80,7 @@ Consultar únicamente los módulos necesarios para la tarea.
 
 Consultar:
 
-`security/SECURITY-INDEX.md`
+[`security/SECURITY-INDEX.md`](./security/SECURITY-INDEX.md)
 
 e identificar los documentos aplicables.
 
@@ -90,7 +90,7 @@ e identificar los documentos aplicables.
 
 Consultar:
 
-`engineering/ENGINEERING-INDEX.md`
+[`engineering/ENGINEERING-INDEX.md`](./engineering/ENGINEERING-INDEX.md)
 
 e identificar los estándares correspondientes.
 
@@ -102,7 +102,7 @@ Las skills son especializaciones opcionales y no forman parte de las reglas glob
 
 La existencia de una skill en el catálogo no implica su activación. Identificar una tecnología, dependencia, extensión, framework, archivo, paquete, import o directorio tampoco activa skills.
 
-La única fuente estándar de activación es `ACTIVE-SKILLS.md`, ubicado exactamente en el **Consumer Project Root** definido para la ejecución. No buscar este manifest de forma recursiva, ascendente, descendente ni aproximada.
+La única fuente estándar de activación es [`ACTIVE-SKILLS.md`](../ACTIVE-SKILLS.md), ubicado exactamente en el **Consumer Project Root** definido para la ejecución. No buscar este manifest de forma recursiva, ascendente, descendente ni aproximada.
 
 Si el archivo no existe en esa ubicación, existen cero skills activas.
 
@@ -112,7 +112,7 @@ Las reglas aplicables de Security y Engineering continúan siendo obligatorias. 
 
 El orden de declaración no concede precedencia. Ante un conflicto entre skills, informar el conflicto, suspender la decisión afectada y continuar únicamente con trabajo independiente y seguro.
 
-Consultar `skills/README.md` para el gobierno completo del subsistema.
+Consultar [`skills/README.md`](./skills/README.md) para el gobierno completo del subsistema.
 
 ---
 
@@ -120,7 +120,7 @@ Consultar `skills/README.md` para el gobierno completo del subsistema.
 
 Los Agents son roles de ejecución opcionales y delimitados. Utilizan las Rules aplicables y las Skills ya activas, pero no crean autoridad normativa, no activan Skills y no pueden redefinir requisitos, arquitectura, Security ni Engineering.
 
-Consultar `agents/README.md` para el contrato de futuros subagentes.
+Consultar [`agents/README.md`](./agents/README.md) para el contrato de futuros subagentes.
 
 ---
 
@@ -128,7 +128,7 @@ Consultar `agents/README.md` para el contrato de futuros subagentes.
 
 Consultar:
 
-`templates/README.md`
+[`templates/README.md`](./templates/README.md)
 
 cuando sea necesario crear nuevos documentos.
 
@@ -193,7 +193,7 @@ Nunca asumir:
 
 Si una información crítica no existe deberá indicarse explícitamente.
 
-Cuando la información crítica ausente corresponda a una decisión de autorización, reportarla no equivale a resolverla. La decisión deberá permanecer pendiente conforme a `security/A01-Broken-Access-Control.md` y `engineering/Authorization.md`.
+Cuando la información crítica ausente corresponda a una decisión de autorización, reportarla no equivale a resolverla. La decisión deberá permanecer pendiente conforme a [`security/A01-Broken-Access-Control.md`](./security/A01-Broken-Access-Control.md) y [`engineering/Authorization.md`](./engineering/Authorization.md).
 
 ---
 
