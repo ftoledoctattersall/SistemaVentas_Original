@@ -22,9 +22,10 @@ flowchart LR
     G -- Aprobada --> H
     G -- Rechazada --> I[Cerrar operación]
     H --> J[Integrar con SAP RISE]
-    J --> K[Facturar o emitir boleta]
-    K --> L[Monitorear operación]
-    L --> M[Cancelar si corresponde]
+    J --> K[Revalidar crédito]
+    K --> L[Facturar o emitir boleta]
+    L --> M[Monitorear operación]
+    M --> N[Cancelar si corresponde]
 ```
 
 ## 3. Épicas P0
@@ -131,7 +132,6 @@ Permitir que el empleado construya y conserve una venta de bodega propia antes d
 **Funcionalidades P0 relacionadas**
 
 - `FUN-003`
-- `FUN-014`
 
 **Criterios de aceptación MVP**
 
@@ -149,6 +149,10 @@ Permitir que el empleado construya y conserve una venta de bodega propia antes d
 **Estado**
 
 LISTA
+
+**Aclaración de revalidación**
+
+El borrador local y reanudable del nuevo POS es una decisión de diseño válida para desacoplar la preparación. No replica `FUN-014`: en el legado, ese identificador corresponde a un borrador creado directamente en SAP después de completar la venta y antes de solicitar autorizaciones. EP-04 implementada requiere sólo este ajuste de trazabilidad documental, no una corrección de su núcleo.
 
 ### EP-05 — Cálculo de condiciones comerciales
 
@@ -225,6 +229,7 @@ Confirmar una venta aprobada y obtener en SAP RISE una orden comercial correlaci
 
 **Funcionalidades P0 relacionadas**
 
+- `FUN-014` (necesidad rediseñada, sin reproducir el borrador DI API)
 - `FUN-015`
 
 **Criterios de aceptación MVP**
@@ -257,10 +262,12 @@ Generar desde una venta confirmada el documento tributario que corresponda y con
 **Funcionalidades P0 relacionadas**
 
 - `FUN-023`
+- `FUN-036`
 
 **Criterios de aceptación MVP**
 
 - El empleado habilitado puede solicitar factura o boleta para una orden elegible.
+- Antes de facturar, el sistema revalida el riesgo definido y deriva a autorización cuando corresponda.
 - El sistema valida que la orden no haya sido facturada previamente.
 - Una emisión exitosa registra tipo, folio, fecha, estado e identificador relacionado.
 - Un fallo de emisión no marca la venta como facturada y permite seguimiento o recuperación controlada.
@@ -290,6 +297,7 @@ Permitir el seguimiento punta a punta de ventas, autorizaciones y documentos, y 
 - `FUN-021`
 - `FUN-022`
 - `FUN-034`
+- `FUN-037`
 
 **Criterios de aceptación MVP**
 
@@ -298,6 +306,7 @@ Permitir el seguimiento punta a punta de ventas, autorizaciones y documentos, y 
 - Las operaciones detenidas o fallidas son visibles y señalan la acción posible.
 - El sistema identifica órdenes sin facturar que cumplen la política de vencimiento.
 - La advertencia y cancelación quedan registradas; una cancelación SAP fallida permanece visible para recuperación.
+- Un empleado habilitado puede cancelar manualmente una orden elegible sin esperar el proceso automático.
 
 **Dependencias**
 
@@ -368,7 +377,7 @@ Los pagos/caja, el despacho integral y la postventa requieren decisiones de alca
 
 ## 8. Resumen ejecutivo
 
-- Se definieron **9 épicas** que cubren las **18 funcionalidades P0** sin replicar la estructura técnica del legado.
+- Se mantienen **9 épicas**, ahora trazadas a **20 funcionalidades P0** tras incorporar la revalidación de crédito previa a facturación y la cancelación manual.
 - **1 épica está LISTA**: preparación y borrador de venta.
 - **4 épicas están PARCIALMENTE BLOQUEADAS**: acceso, datos maestros, cliente/riesgo y monitoreo/cancelación.
 - **4 épicas están BLOQUEADAS**: cálculo comercial, autorizaciones, SAP RISE y facturación/DTE.

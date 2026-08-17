@@ -5,8 +5,8 @@
 | ID | Sistema | Propósito | Dirección | Evidencia | Funcionalidades relacionadas |
 |---|---|---|---|---|---|
 | INT-001 | SQL Server | Autenticación, menús, maestros, reglas comerciales, monitores, informes, estados y relaciones documentales. | Aplicación y servicio → SQL Server | `Classes/*Listado.vb`, `clsFuncion.vb`, recursos de ambiente | FUN-001, FUN-002, FUN-010 a FUN-012, FUN-016 a FUN-022, FUN-027 a FUN-035 |
-| INT-002 | SAP Business One DI API | Crear borradores, órdenes de venta, facturas/boletas, órdenes de compra y cancelar órdenes. | Aplicación/integrador → SAP | `wssap/.../clsOrdenVenta.vb`, `clsOrdenCompra.vb`; también existen accesos directos en `ventas/.../Classes` | FUN-014, FUN-015, FUN-020, FUN-023, FUN-025, FUN-034 |
-| INT-003 | Servicio ASMX `srvOrdenVenta` | Exponer operaciones SAP a la aplicación web. | Aplicación web → integrador `wssap` | `ventas/.../web.config`, Web Reference `WebServices`, `wssap/.../Services/srvOrdenVenta.asmx.vb` | FUN-014, FUN-015, FUN-020, FUN-023, FUN-025, FUN-034 |
+| INT-002 | SAP Business One DI API | Implementación legada para crear borradores y órdenes de venta, convertir entre ambos, crear facturas/boletas y órdenes de compra, y cancelar órdenes. | Aplicación o componente integrador → SAP Business One | `wssap/WebServices/WebServices/Classes/clsOrdenVenta.vb`, `clsOrdenCompra.vb`; ensamblado/clases consumidos desde `ventas/` | FUN-014, FUN-015, FUN-020, FUN-023, FUN-025, FUN-034, FUN-037 |
+| INT-003 | Servicio ASMX `wssap/srvOrdenVenta` | Expone solamente crear borrador SAP, crear orden SAP, cancelar orden y copiar una orden existente a borrador. No expone facturación ni creación de órdenes de compra. | Navegador/aplicación web → `wssap` → SAP Business One | `wssap/WebServices/WebServices/Services/srvOrdenVenta.asmx.vb`; llamadas de scripts de venta en `ventas/` | FUN-014, FUN-015, FUN-037 |
 | INT-004 | Servicios ASMX internos | Entregar por AJAX clientes, productos, bodegas, inventario, plazos, proveedores, transacciones y otros maestros. | Navegador → aplicación web | `ventas/SistemaVentasWeb/SistemaVentasWeb/Services/*.asmx.vb` | FUN-001, FUN-002, FUN-010 a FUN-012, FUN-021, FUN-022, FUN-035 |
 | INT-005 | PDFE/Azurian | Obtener URL de visualización del PDF de un documento tributario electrónico. | Aplicación web → SOAP externo | Web Reference `PDFE`, `pagVisualizarOrdenVenta.aspx.vb`, endpoint configurable | FUN-024 |
 | INT-006 | SMTP corporativo | Enviar solicitudes y resultados de autorización, órdenes de compra y avisos de cancelación. | Aplicación web → servidor SMTP → destinatarios | `ToMail.vb`, `clsAutorizacionListado.vb`, `clsDispatcherListado.vb`, páginas de compra/cancelación | FUN-017 a FUN-020, FUN-026, FUN-034 |
@@ -14,6 +14,7 @@
 | INT-008 | Impresión SAP | Solicitar impresión al crear el documento de venta. El mecanismo final ocurre en SAP/ambiente. | Aplicación → integrador → SAP | Parámetro `blnImprimir` en `RegistrarOrdenVentaEnFacturaVenta` | FUN-023 |
 | INT-009 | NLog/archivos de log | Registrar diagnósticos, consultas, resultados y errores en rutas configuradas. | Aplicación/servicio → archivos | `NLog.config`, `Classes/ToLog.vb` en ambos proyectos | Soporte transversal |
 | INT-010 | Tarea programada externa | Invocar páginas de cancelación para aviso y ejecución. No está incluida en el repositorio. | Scheduler externo → páginas web | `pagCancelarBorradorVenta.aspx.vb`, `pagCancelarOrdenVenta.aspx.vb` | FUN-033, FUN-034 |
+| INT-011 | Componente SAP consumido por `ventas/` | Ejecuta desde la aplicación web operaciones no publicadas por el ASMX de `wssap`, entre ellas conversión del borrador autorizado, facturación/boleta y compra asociada. | Aplicación web → ensamblado/clases SAP → SAP Business One | referencia `WebServices.dll` y usos de `WebServices.clsOrdenVenta`/`clsOrdenCompra` en `ventas/` | FUN-020, FUN-023, FUN-025, FUN-034 |
 
 ## Procedimientos almacenados referenciados
 
@@ -35,6 +36,7 @@ Las definiciones SQL no están versionadas. Su propósito se infiere únicamente
 
 ## Observaciones para el nuevo POS
 
-- El legado combina tres formas de integración con SAP: DI API dentro del integrador, DI API también dentro de la aplicación web y consultas SQL que aparentan leer datos SAP. El nuevo POS debe concentrar esta frontera en una capa de integración controlada.
+- El legado combina llamadas HTTP directas al ASMX `wssap`, uso de un componente SAP referenciado desde `ventas/` y consultas SQL que aparentan leer datos SAP. El ASMX observado publica cuatro operaciones y no representa toda la frontera SAP. El nuevo POS debe preservar las capacidades, no esta implementación, y concentrarlas en una integración SAP RISE controlada.
+- `wssap` recibe cabecera comercial y detalle serializado de la venta y devuelve una respuesta textual con resultado/identificadores. La lógica de armado de documentos, líneas técnicas, campos propios y conexión DI API reside en el componente SAP; la preparación, reglas, autorización, monitoreo y decisión de invocarlo residen principalmente en `ventas/`.
 - Los endpoints, servidores, usuarios, claves y destinatarios dependen del ambiente. Esta documentación deliberadamente no reproduce secretos encontrados en archivos de recursos o código.
 - Las llamadas ASMX y SOAP son contratos heredados; debe confirmarse si seguirán disponibles durante la transición.

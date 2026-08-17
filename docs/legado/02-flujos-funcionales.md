@@ -43,21 +43,22 @@ Registrar una operación comercial según su modalidad y decidir si puede conver
 3. Agrega productos, bodega, cantidades, precios, monedas, fechas y, según modalidad, proveedor y condiciones de compra.
 4. El sistema consulta inventario y calcula descuento, interés, flete, margen, costo y total.
 5. El usuario completa despacho, plazo de pago, orden de compra del cliente y comentarios.
-6. El sistema registra un borrador u orden en SAP Business One.
-7. Si las reglas detectan excepciones, registra solicitudes de autorización y notifica responsables.
+6. El navegador decide, según las excepciones detectadas, si solicita crear un borrador SAP o una orden SAP directa.
+7. Cuando requiere autorización, primero se crea el borrador en SAP Business One y luego se registran las solicitudes y notificaciones.
 
 ```mermaid
 flowchart LR
     A[Seleccionar modalidad] --> B[Cliente y productos]
     B --> C[Calcular condiciones]
     C --> D{¿Requiere autorización?}
-    D -- Sí --> E[Borrador y solicitudes]
+    D -- Sí --> E[Borrador SAP y solicitudes]
     D -- No --> F[Orden de venta SAP]
 ```
 
 ### Reglas identificadas
 
 - Existen modalidades diferenciadas: bodega propia, consignada, puesto fundo, calzada proveedor, costo especial y liquidación; calzada propia requiere validación de vigencia.
+- El borrador legado es un documento SAP creado después de completar la preparación; el código no confirma guardado o reanudación de una venta local incompleta.
 - Se consideran línea de crédito, deuda/facturas impagas y cheques protestados.
 - Se comparan descuento máximo, tasa, margen y costo; el significado exacto de todas las bandas `BM`/`BC` está pendiente.
 - Cada línea puede conservar bodega, fecha de entrega, descuento, interés, flete y costo de reposición.
@@ -86,15 +87,15 @@ Obtener decisiones trazables de responsables antes de convertir un borrador obse
 2. Registra autorizador oficial y respaldo para cada concepto.
 3. Envía correo con datos del cliente, operación, productos y enlace de respuesta.
 4. El autorizador revisa y aprueba o rechaza, dejando comentario.
-5. El sistema consolida todas las respuestas.
-6. Si el conjunto queda aprobado, convierte el borrador SAP en orden y actualiza estados; si existe rechazo, finaliza como rechazado.
+5. El sistema consolida todas las respuestas y refleja el resultado en el monitor.
+6. Si el conjunto queda aprobado, la operación aparece como autorizada no creada; un usuario la procesa desde el monitor para convertir el borrador SAP en orden. Si existe rechazo, finaliza como rechazado.
 
 ### Reglas identificadas
 
 - La decisión se registra por concepto y por autorizador.
 - Se mantienen fechas de creación y respuesta, comentario, responsable oficial y respaldo.
 - La aprobación puede incluir una instrucción de bloqueo de guía de despacho.
-- La conversión a orden sólo ocurre cuando la validación agregada resulta aprobada.
+- La conversión a orden sólo se habilita cuando la validación agregada resulta aprobada y requiere una acción visible desde el monitor.
 
 ### Resultado
 
@@ -119,14 +120,16 @@ Dar visibilidad al estado de autorizaciones y documentos durante el ciclo comerc
 1. El usuario ingresa al monitor correspondiente.
 2. Selecciona estado, operador o tipo de consulta.
 3. El sistema obtiene resúmenes desde procedimientos almacenados.
-4. El usuario abre el borrador, autorización u orden.
-5. El sistema presenta cabecera, cliente, condiciones, comentarios, líneas y totales.
+4. Según el estado, el usuario abre el detalle, procesa un borrador autorizado, abre una orden facturable o solicita su cancelación manual.
+5. Antes de abrir una orden para facturación, el sistema vuelve a consultar el crédito; si no es suficiente bajo las condiciones visibles, deriva a una autorización específica.
+6. El sistema presenta cabecera, cliente, condiciones, comentarios, líneas y totales.
 
 ### Reglas identificadas
 
 - Autorizaciones y documentos usan monitores separados.
 - La visualización cambia campos según la modalidad de venta.
 - Se exponen estados de borrador y referencias SAP.
+- La cancelación manual desde el monitor es distinta del aviso/cancelación automática por antigüedad.
 
 ### Resultado
 
@@ -147,12 +150,13 @@ Convertir una orden en documento de venta y permitir su consulta en PDF.
 
 ### Flujo
 
-1. El usuario abre una orden no facturada y elige crear documento.
-2. El sistema solicita al integrador SAP crear factura o boleta desde la orden.
-3. SAP genera el documento usando las líneas base de la orden.
-4. Para ciertas modalidades el sistema espera y consulta el folio tributario.
-5. Cuando se solicita ver el documento, envía tipo, folio y resolución al servicio PDFE.
-6. El navegador abre la URL del PDF retornada.
+1. El usuario selecciona una orden no facturada.
+2. El sistema revalida el crédito disponible y, si corresponde, exige una nueva autorización antes de abrir la facturación.
+3. El usuario elige crear factura o boleta y el sistema solicita a la integración SAP crearla desde la orden.
+4. SAP genera el documento usando las líneas base de la orden.
+5. Para ciertas modalidades el sistema espera y consulta el folio tributario.
+6. Cuando se solicita ver el documento, envía tipo, folio y resolución al servicio PDFE.
+7. El navegador abre la URL del PDF retornada.
 
 ### Reglas identificadas
 

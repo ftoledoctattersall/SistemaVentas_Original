@@ -32,20 +32,20 @@ La clasificación orienta la priorización del producto; no constituye por sí s
 | FUN-011 | Ventas | Consultar cliente y riesgo comercial | MANTENER | P0 | SI | Es necesario decidir una venta con información del cliente y su riesgo. | Fuente maestra y política de crédito. |
 | FUN-012 | Ventas | Consultar producto e inventario | MANTENER | P0 | SI | Productos y disponibilidad habilitan la preparación de venta. | Maestro de productos y stock confiable. |
 | FUN-013 | Ventas | Emitir voucher de venta | REDISEÑAR | P2 | NO | El comprobante puede ser útil, pero formato y canal deben modernizarse. | Definición documental y experiencia de usuario. |
-| FUN-014 | SAP ventas | Crear borrador de venta | REDISEÑAR | P0 | SI | Se requiere un estado previo, desacoplado del mecanismo SAP legado. | Estrategia de estados y contrato de integración. |
+| FUN-014 | SAP ventas | Crear borrador de venta para autorización | REDISEÑAR | P0 | SI | La necesidad es conservar una venta observada; no trasladar el borrador DI API ni confundirlo con el borrador local del POS. | Estrategia de estados, autorizaciones y contrato SAP RISE. |
 | FUN-015 | SAP ventas | Crear orden de venta | REDISEÑAR | P0 | SI | Confirmar la venta en SAP es parte del flujo operativo. | API SAP RISE, series, impuestos y campos requeridos. |
 | FUN-016 | Autorizaciones | Determinar autorizaciones requeridas | REDISEÑAR | P0 | SI | Control comercial indispensable con reglas trazables. | Umbrales, jerarquías y dueños de reglas. |
 | FUN-017 | Autorizaciones | Notificar solicitud de autorización | REDISEÑAR | P0 | SI | Las aprobaciones necesitan aviso confiable y seguimiento. | Canal corporativo, plantillas y escalamiento. |
 | FUN-018 | Autorizaciones | Aprobar borrador | MANTENER | P0 | SI | Decisión humana necesaria para excepciones comerciales. | Identidad, permisos y reglas aprobadas. |
 | FUN-019 | Autorizaciones | Rechazar borrador | MANTENER | P0 | SI | Cierre negativo trazable del proceso de excepción. | Identidad, permisos y trazabilidad. |
-| FUN-020 | Autorizaciones | Consolidar decisión de autorización | REDISEÑAR | P0 | SI | Debe resolver múltiples decisiones sin replicar el dispatcher legado. | Estados, concurrencia y política de aprobación. |
+| FUN-020 | Autorizaciones | Consolidar y procesar decisión de autorización | REDISEÑAR | P0 | SI | Debe resolver múltiples decisiones y avanzar la venta sin replicar el procesamiento manual del monitor legado. | Estados, concurrencia y política de aprobación. |
 | FUN-021 | Monitoreo | Monitorear autorizaciones | REDISEÑAR | P0 | SI | Visibilidad necesaria para evitar ventas detenidas. | Modelo de estados, responsables y alertas. |
-| FUN-022 | Monitoreo | Monitorear documentos comerciales | REDISEÑAR | P0 | SI | Trazabilidad punta a punta necesaria para operar y soportar. | Correlación POS–SAP y estados sincronizados. |
+| FUN-022 | Monitoreo | Monitorear y accionar documentos comerciales | REDISEÑAR | P0 | SI | Trazabilidad y acciones por estado son necesarias, con controles explícitos. | Correlación POS–SAP, permisos y estados sincronizados. |
 | FUN-023 | Facturación | Crear factura o boleta desde orden | REDISEÑAR | P0 | SI | Completa el eje transaccional, pero depende del diseño SAP/DTE futuro. | Tipo documental, SAP RISE, SII e impresión. |
 | FUN-024 | Facturación | Visualizar documento tributario | REDISEÑAR | P1 | SI | El usuario debe acceder al documento, sin depender del SOAP legado. | Proveedor DTE, folio, resolución y seguridad. |
 | FUN-025 | Compras | Generar orden de compra asociada | VALIDAR | P1 | POR VALIDAR | Puede ser crítica para modalidades con abastecimiento externo. | Límite POS–Compras y responsabilidad de Abastecimiento. |
 | FUN-026 | Compras | Notificar orden de compra | VALIDAR | P2 | POR VALIDAR | Canal y cláusula de aceptación requieren validación. | Proceso de compras, Legal y comunicaciones. |
-| FUN-027 | Cotizaciones | Consultar cotizaciones | VALIDAR | P2 | POR VALIDAR | No está confirmado si cotizar es parte del nuevo POS. | Alcance comercial y uso actual. |
+| FUN-027 | Cotizaciones | Consultar y reutilizar cotizaciones | VALIDAR | P2 | POR VALIDAR | El legado reutiliza cotizaciones pendientes, pero falta decidir si esta continuidad pertenece al POS. | Alcance comercial y uso actual. |
 | FUN-028 | Informes | Consultar cuenta corriente | MANTENER | P1 | NO | Información relevante, pero puede entregarse fuera del MVP. | Fuente financiera y permisos de consulta. |
 | FUN-029 | Informes | Consultar ventas mensuales | MANTENER | P2 | NO | Capacidad de gestión útil, no bloquea la venta inicial. | Plataforma corporativa de reportes. |
 | FUN-030 | Comisiones | Consultar comisión provisoria | VALIDAR | P3 | NO | No hay evidencia suficiente para incluirla en el POS. | Dueño del proceso y sistema objetivo. |
@@ -54,6 +54,8 @@ La clasificación orienta la priorización del producto; no constituye por sí s
 | FUN-033 | Cancelaciones | Cancelar borradores pendientes | REDISEÑAR | P1 | SI | Se necesita depuración controlada, observable y recuperable. | Criterio temporal, estados y automatización. |
 | FUN-034 | Cancelaciones | Avisar/cancelar órdenes sin facturar | REDISEÑAR | P0 | SI | Evita documentos abiertos fuera de política comercial. | Plazo, aviso, autorización y cancelación SAP. |
 | FUN-035 | Maestros | Consultar parámetros comerciales | REDISEÑAR | P0 | SI | Datos maestros son transversales y deben tener fuente y gobierno claros. | Dueños de datos, sincronización y SAP RISE. |
+| FUN-036 | Facturación/Crédito | Revalidar crédito antes de facturar | REDISEÑAR | P0 | SI | Es un control operativo real, pero debe integrarse a una política de riesgo única y trazable. | Regla de Crédito y elegibilidad de facturación. |
+| FUN-037 | Cancelaciones | Cancelar manualmente orden pendiente | MANTENER | P0 | SI | El operador necesita cerrar una orden elegible sin esperar el proceso automático. | Permisos, estados cancelables y operación SAP RISE. |
 
 ## 4. Flujo MVP candidato
 
@@ -67,9 +69,10 @@ flowchart LR
     E -- Aprobada --> F
     E -- Rechazada --> G[Cerrar operación]
     F --> H[Crear documento en SAP]
-    H --> I[Facturar o emitir boleta]
-    I --> J[Monitorear resultado]
-    J --> K[Cancelar pendientes según política]
+    H --> I[Revalidar crédito]
+    I --> J[Facturar o emitir boleta]
+    J --> K[Monitorear resultado]
+    K --> L[Cancelar si corresponde]
 ```
 
 ## 5. Funcionalidades P0
@@ -92,6 +95,8 @@ flowchart LR
 - `FUN-023` — Crear factura o boleta desde orden.
 - `FUN-034` — Avisar/cancelar órdenes sin facturar.
 - `FUN-035` — Consultar parámetros comerciales.
+- `FUN-036` — Revalidar crédito antes de facturar.
+- `FUN-037` — Cancelar manualmente orden pendiente.
 
 ## 6. Decisiones bloqueantes
 
@@ -112,19 +117,19 @@ flowchart LR
 
 | Indicador | Cantidad |
 |---|---:|
-| Total funcionalidades | 35 |
-| Mantener | 7 |
-| Rediseñar | 16 |
+| Total funcionalidades | 37 |
+| Mantener | 8 |
+| Rediseñar | 17 |
 | Descartar | 0 |
 | Validar | 12 |
-| P0 | 18 |
+| P0 | 20 |
 | P1 | 8 |
 | P2 | 6 |
 | P3 | 3 |
-| Candidatas MVP | 20 |
+| Candidatas MVP | 22 |
 | Bloqueos críticos | 10 |
 
-- El MVP candidato cubre el ciclo desde acceso y preparación de venta hasta facturación, monitoreo y cancelación.
+- El MVP candidato cubre el ciclo desde acceso y preparación de venta hasta revalidación de crédito, facturación, monitoreo y cancelación manual o por política.
 - El mayor esfuerzo no consiste en copiar pantallas, sino en desacoplar reglas y estados de SQL, servicios heredados y SAP Business One.
 - Doce capacidades permanecen en validación; principalmente modalidades especiales, compras, cotizaciones, comisiones y gestión documental.
 - No existe evidencia suficiente para descartar capacidades de forma definitiva.
