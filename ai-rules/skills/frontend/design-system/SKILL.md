@@ -10,82 +10,85 @@
 
 ## Purpose
 
-Define the shared design-system and branding boundaries for a multi-company corporate interface, so functional components remain independent from company-specific identity and can adapt to the active company without modification.
+Define reusable design-system and branding boundaries so functional components remain independent from concrete identities and can adapt through configuration.
 
 ## Applies When
 
-Apply this skill only when `frontend/design-system` is explicitly declared in `ACTIVE-SKILLS.md` at the established Consumer Project Root and a task creates or modifies visual tokens, branding resolution, shared visual components, or company-aware presentation.
+Apply only when `frontend/design-system` is explicitly declared in `ACTIVE-SKILLS.md` at the Consumer Project Root and the task changes visual tokens, branding resolution, shared visual components, themes, or company-aware presentation.
 
-Technical applicability does not activate this skill. It does not activate other frontend skills transitively.
+Technical applicability and related skills do not activate this skill.
 
 ## Does Not Cover
 
-This skill does not define concrete logos, color values, font files, screens, business functionality, authentication, authorization, a ThemeProvider implementation, or a Material UI theme. Concrete branding values live outside `ai-rules` in the consumer project's branding assets and data.
+This skill does not define concrete logos, colors, fonts, screens, business functionality, framework-specific providers, or runtime configuration. Concrete branding belongs outside `ai-rules/`.
 
 ## Authority and Constraints
 
-This skill is optional and governed by `skills/README.md`. Applicable Security and Engineering Rules remain mandatory and take precedence.
-
-`ai-rules` defines reusable rules. Concrete logos, colors, and typography values belong outside `ai-rules`; they must not be copied into this skill.
+Applicable Security and Engineering Rules precede this optional skill. Do not invent brand assets or values. Keep consumer-specific identity and configuration outside `ai-rules/`.
 
 ## Rules
 
 ### Branding resolution
 
-- Functional components must not contain hardcoded company colors or depend directly on a specific subsidiary logo.
-- Resolve company colors and logos through the established branding, design-token, or theme boundary.
-- Use the EETT corporate branding when no `EmpresaActiva` exists, including initial access, login, corporate context, and company selection when applicable.
-- When `EmpresaActiva` exists, use that company's branding.
-- Branding must depend on `EmpresaActiva`, not merely on the user's principal or initially assigned company.
-- Preserve the ability for a user to access more than one company in the future.
-- Changing `EmpresaActiva` must allow logo and company colors to change without modifying functional components.
-- Add a new company by supplying its branding configuration and assets, without modifying existing functional components.
+- Functional components must not hardcode brand colors or import identity-specific assets directly.
+- Resolve identity through an established `brandDefinition`, design-token, or theme boundary.
+- Use `defaultBrand` when no `activeCompany` is selected and the consumer contract defines a fallback.
+- When `activeCompany` exists, resolve its approved brand configuration without coupling functional components to company identifiers.
+- Adding a brand must require configuration and assets, not changes to unrelated functional components.
+- Keep resolution deterministic and define safe behavior for missing or invalid brand configuration.
 
-### Shared and company-specific identity
+### Tokens and semantics
 
-- EETT represents the general corporate branding for Grupo Tattersall.
-- Use one shared corporate typography across all companies.
-- Treat company colors primarily as visual identity for the header or app bar, primary actions, selection, accents, and brand elements.
-- Keep common functional states consistent. Do not redefine error, warning, success, info, or disabled states arbitrarily per company.
+- Separate primitive values from semantic tokens and component-level decisions.
+- Preserve shared semantics for error, warning, success, information, focus and disabled states unless an explicit accessible contract requires otherwise.
+- Keep typography, spacing, elevation, shape and motion decisions in the appropriate token or theme boundary.
+- Do not expose secrets, internal paths or untrusted executable content through branding configuration.
 
 ### Accessibility and responsive behavior
 
-- Do not communicate a functional state or required meaning exclusively through color.
-- Ensure adequate contrast and accessible interaction for text, controls, focus, and status presentation.
-- Keep the interface responsive and operable on desktop, tablet, and mobile.
+- Do not communicate meaning exclusively through color.
+- Validate contrast, focus visibility, text scaling and accessible interaction.
+- Preserve responsive behavior at the breakpoints and form factors approved by the project.
+- Treat reduced motion and user preferences according to the consumer's accessibility requirements.
 
 ## Recommendations
 
-- Keep functional semantics separate from visual identity tokens.
-- Give branding configurations a stable contract so company switching does not leak into feature components.
-- Validate brand assets and tokens independently before integrating them into a UI framework.
+- Keep a stable, minimal `brandDefinition` contract.
+- Validate tokens and assets before runtime integration.
+- Prefer semantic tokens over direct palette references in functional components.
+- Document how `defaultBrand` and `activeCompany` are resolved.
 
 ## Anti-Patterns
 
-- Hex values or company asset paths embedded in functional React components.
-- Conditional rendering that imports a subsidiary logo directly based on user assignment.
-- Resolving branding from the user's principal company while ignoring `EmpresaActiva`.
-- Recoloring error, warning, success, info, or disabled states for each subsidiary without a shared functional rationale.
-- Using color as the only indication of state, selection, error, or required action.
-- Changing existing feature components whenever a new company is incorporated.
+- Hex values or brand asset paths embedded in functional components.
+- Conditionals on concrete company names throughout the UI.
+- Brand configuration that changes functional authorization or business behavior.
+- Color-only state communication.
+- Requiring feature changes whenever a brand is added.
+- Treating related frontend skills as transitively active.
 
 ## Validation
 
-- Inspect functional components for hardcoded company colors and direct subsidiary-logo dependencies.
-- Confirm the branding contract has an EETT fallback when `EmpresaActiva` is absent and resolves the active company's identity when present.
-- Verify that changing `EmpresaActiva` can change logo and identity colors without feature-component changes.
-- Confirm typography is shared and company-specific values remain outside `ai-rules`.
-- Check contrast, non-color state cues, and behavior at desktop, tablet, and mobile sizes.
-- Confirm common functional states remain consistent across company brandings.
+- [ ] `frontend/design-system` is explicitly active.
+- [ ] Functional components contain no concrete brand identities or asset paths.
+- [ ] `defaultBrand`, `activeCompany` and `brandDefinition` behavior is explicit when applicable.
+- [ ] Tokens preserve semantic consistency and avoid visual hardcodes.
+- [ ] Missing configuration has deterministic safe behavior.
+- [ ] Contrast, non-color cues, focus and responsive behavior were checked.
+- [ ] Concrete branding remains outside `ai-rules/`.
 
 ## Related Rules
 
 - engineering/Architecture.md
 - engineering/Testing.md
 - engineering/Validation.md
+- security/A03-Injection.md
+- security/A05-Security-Misconfiguration.md
 
 ## Related Skills
 
 - frontend/frontend-design
 - frontend/material-ui
 - frontend/react
+
+All relationships are informative. No skill is activated transitively.

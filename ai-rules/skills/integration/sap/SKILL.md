@@ -5,7 +5,7 @@
 - Skill: integration/sap
 - Skill-Version: 1.0.0
 - Technology: Framework-agnostic
-- Compatibility: Consumer-project approved SAP contract
+- Compatibility: Contract-dependent
 - Category: integration
 
 ## Purpose

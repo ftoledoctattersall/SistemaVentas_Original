@@ -22,7 +22,7 @@ Lambda is assumed to have been selected by an existing architectural decision. T
 
 This skill does not decide whether Lambda is the primary backend, serverless versus persistent ASP.NET, microservices, the event source, SQS versus EventBridge, DynamoDB versus SQL, RDS, API Gateway, infrastructure-as-code technology, AWS Region, multi-account strategy, VPC, disaster recovery, or business rules.
 
-It does not define the CRM/POS architecture, corporate IAM strategy, or a universal language/runtime implementation. It does not require `backend/dotnet` even when the consumer project uses .NET.
+It does not define the consumer application's architecture, organizational IAM strategy, or a universal language/runtime implementation. It does not require `backend/dotnet` even when the consumer project uses .NET.
 
 ## Authority and Constraints
 

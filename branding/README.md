@@ -8,7 +8,7 @@ Las futuras filiales se agregan bajo [`branding/companies/`](companies/). Los co
 
 En el frontend, `resolveBrand(EmpresaActiva)` usa EETT como fallback y Agroinsumos como primer branding empresarial; nuevos brandings deben incorporarse sin modificar componentes funcionales.
 
-Los archivos de `logos-colores/` se mantienen como fuente original para conservar trazabilidad.
+Los activos y valores visuales normalizados bajo [`branding/`](./) son la fuente versionada utilizada por el proyecto.
 
 ## Uso por agentes y desarrolladores
 
@@ -21,4 +21,4 @@ Antes de modificar la UI:
 5. Evitar introducir colores, logos o identidad visual directamente en componentes cuando exista una abstracción equivalente.
 6. Preservar el comportamiento responsive.
 
-[`logos-colores/`](../logos-colores/) constituye la evidencia y el origen trazable de los activos y valores visuales. [`branding/`](./) es la representación organizada utilizada por el proyecto. Esta separación no elimina la necesidad de revisar la implementación runtime existente.
+Los activos y valores visuales concretos se mantienen bajo [`branding/`](./). Esta separación no elimina la necesidad de revisar la implementación runtime existente.
