@@ -39,4 +39,4 @@ Nuevo POS — FASE 1A
 
 - [Preparación del entorno](docs/SETUP.md)
 - [Ejecución y verificación](docs/RUNBOOK.md)
-- [Guía para solicitar trabajo a agentes IA](docs/AI-DEVELOPMENT-GUIDE.md): explica cómo pedir cambios, correcciones y análisis dentro del proyecto.
+- [Guía para solicitar trabajo a agentes IA](AI-DEVELOPMENT-GUIDE.md): explica cómo pedir cambios, correcciones y análisis dentro del proyecto.
