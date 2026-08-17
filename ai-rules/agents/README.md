@@ -52,4 +52,11 @@ Todo futuro `AGENT.md` debería contener:
 - Validation
 - Output Contract
 
-No existen actualmente Agents individuales en el catálogo.
+El catálogo actualmente incluye los siguientes Agents individuales:
+
+- `architecture-reviewer`
+- `backend-reviewer`
+- `frontend-reviewer`
+- `security-reviewer`
+
+Sus contratos se encuentran en sus respectivos directorios. Deben utilizarse según el riesgo o la naturaleza de la tarea; no se ejecutan todos por defecto.

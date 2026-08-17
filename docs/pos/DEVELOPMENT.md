@@ -64,9 +64,9 @@ Una fase sólo puede considerarse PASS cuando:
 6. los tests frontend pasan si frontend fue afectado;
 7. la documentación está actualizada cuando corresponde;
 8. no se incorporaron secretos;
-9. no existen cambios fuera de scope;
-10. se realizó el commit;
-11. se realizó el push.
+9. no existen cambios fuera de scope.
+
+La validación técnica forma parte del cierre normal de una implementación. El commit y el push no son requisitos automáticos de toda tarea: se realizan únicamente cuando la tarea o el flujo autorizado lo permita. Una tarea read-only no debe producir commit ni push, y una instrucción explícita de no publicar prevalece sobre el flujo Git normal.
 
 ## Documentación viva
 

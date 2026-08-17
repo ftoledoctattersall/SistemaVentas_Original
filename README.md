@@ -10,6 +10,10 @@ Este repositorio reúne el sistema legado de referencia, la normativa de desarro
 - `pos/`: producto nuevo desarrollado desde cero y aislado del legado.
 - `docs/`: documentación operativa y arquitectónica transversal.
 
+## Instrucciones para agentes
+
+Antes de modificar el repositorio, leer [`AGENTS.md`](AGENTS.md). Ese punto de entrada dirige a [`ai-rules/AI-INSTRUCTIONS.md`](ai-rules/AI-INSTRUCTIONS.md) y al manifiesto de skills activas [`ACTIVE-SKILLS.md`](ACTIVE-SKILLS.md).
+
 ## Estado
 
 Nuevo POS — FASE 1A

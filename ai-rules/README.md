@@ -228,8 +228,8 @@ Ejemplo:
 |---------|--------|
 | Security | ✅ v1.0 |
 | Engineering | ✅ v1.0 |
-| Skills | Infraestructura v1; catálogo inicial con `frontend/frontend-design` |
-| Agents | Contrato inicial; sin agentes individuales |
+| Skills | Infraestructura v1; catálogo vigente en [`skills/SKILLS-INDEX.md`](skills/SKILLS-INDEX.md) |
+| Agents | Contrato inicial; cuatro reviewers individuales disponibles |
 | Templates | 🚧 En construcción |
 
 ---
