@@ -6,15 +6,20 @@ Este repositorio reúne el sistema legado de referencia, la normativa transversa
 
 ```text
 /
-├── AGENTS.md
-├── ACTIVE-SKILLS.md
-├── AI-DEVELOPMENT-GUIDE.md
+├── .agents/
 ├── ai-rules/
 ├── branding/
 ├── docs/
+├── logos-colores/
 ├── pos/
+├── ppts/
+├── Respaldos/
 ├── ventas/
-└── wssap/
+├── wssap/
+├── ACTIVE-SKILLS.md
+├── AGENTS.md
+├── AI-DEVELOPMENT-GUIDE.md
+└── README.md
 ```
 
 - `AGENTS.md`: punto de entrada para agentes IA.
@@ -23,7 +28,10 @@ Este repositorio reúne el sistema legado de referencia, la normativa transversa
 - `ai-rules/`: normativa técnica, seguridad, engineering, skills y reviewers.
 - `branding/`: identidad visual, datos y assets corporativos.
 - `docs/`: documentación transversal y específica de cada área.
+- `logos-colores/`: fuente original de assets y valores visuales.
 - `pos/`: implementación del nuevo Punto de Venta.
+- `Respaldos/`: evidencia y documentación histórica no necesaria para runtime.
+- `ppts/`: entregables locales no versionados por ahora.
 - `ventas/` y `wssap/`: sistema de ventas e integrador legado de referencia.
 
 La separación de estas piezas es deliberada: descubrimiento, configuración contractual, normativa, guía de trabajo e identidad visual tienen responsabilidades distintas.
