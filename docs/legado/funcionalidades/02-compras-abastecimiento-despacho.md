@@ -91,6 +91,8 @@ flowchart TD
 
 ### Calzada propia
 
+**Revalidación dirigida:** NO CONFIRMADA FUNCIONALMENTE. La página encontrada es un artefacto: referencia el code-behind de calzada proveedor y los scripts propios no implementan lógica. No se confirmó proveedor, stock, compra asociada, despacho, documento SAP ni facturación.
+
 PENDIENTE DE VALIDACIÓN FUNCIONAL
 
 Existe la pantalla, pero no se confirmó un flujo transaccional que cree orden/borrador de venta ni una compra asociada.

@@ -1,5 +1,7 @@
 # Catálogo funcional consolidado
 
+**Revalidación dirigida de FUN-007:** la pantalla de calzada propia no tiene code-behind ni scripts transaccionales propios; permanece NO CONFIRMADA.
+
 ## Resumen ejecutivo
 
 El legado administra el ciclo comercial de Agroinsumos desde la preparación de una venta hasta su autorización, registro en SAP, facturación y seguimiento. Incluye variantes según el origen físico y comercial del producto, compras asociadas, consultas operativas y reportes.

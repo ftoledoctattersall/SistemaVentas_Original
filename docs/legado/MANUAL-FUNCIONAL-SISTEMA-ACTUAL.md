@@ -57,6 +57,8 @@ Detalle: [01-flujo-venta-completo.md](funcionalidades/01-flujo-venta-completo.md
 
 ## 5. Modalidades de venta
 
+**Revalidación dirigida:** calzada propia permanece no confirmada. Sólo se encontró una pantalla cuyo code-behind y scripts propios no implementan un flujo transaccional verificable.
+
 | Modalidad | Descripción breve | Abastecimiento | Observaciones |
 |---|---|---|---|
 | Bodega propia | Venta desde stock de una bodega propia | Stock propio | La bodega y disponibilidad condicionan la operación |

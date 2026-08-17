@@ -1,5 +1,7 @@
 # Flujos funcionales principales
 
+**Revalidación dirigida:** la modalidad calzada propia permanece NO CONFIRMADA; su pantalla no tiene un flujo transaccional propio verificable.
+
 ## FUN-001/FUN-002 — Acceso y menú según perfil
 
 ### Objetivo

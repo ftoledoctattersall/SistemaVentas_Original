@@ -367,6 +367,8 @@ PENDIENTE DE VALIDACIÓN FUNCIONAL: responsabilidad de despacho y recepción en 
 
 ### FUN-007 — Registrar venta calzada propia
 
+**Resultado de revalidación dirigida:** NO CONFIRMADA. `pagVentaCalzadaPropia.aspx` contiene un artefacto de interfaz, pero su directiva apunta a `pagVentaCalzadaProveedor.aspx.vb`; el code-behind propio no contiene lógica y `scrVentaCalzadaPropia.js`/`scrVentaCalzadaPropiaProducto.js` están vacíos. No se encontró ruta propia para borrador, orden, compra, despacho o facturación.
+
 #### Propósito
 
 La solución contiene una pantalla destinada a preparar esta modalidad. No se confirmó un flujo completo que registre borrador u orden.

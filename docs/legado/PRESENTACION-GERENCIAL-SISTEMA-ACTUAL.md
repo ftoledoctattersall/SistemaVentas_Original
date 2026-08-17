@@ -39,6 +39,8 @@ En términos operativos, el usuario inicia sesión, selecciona cliente y modalid
 
 ## Lámina 3 — Modalidades de venta
 
+**Nota de validación:** calzada propia no está confirmada; existe un artefacto de pantalla sin flujo transaccional propio verificable.
+
 | Modalidad | Característica ejecutiva |
 |---|---|
 | Bodega propia | Venta desde stock propio |

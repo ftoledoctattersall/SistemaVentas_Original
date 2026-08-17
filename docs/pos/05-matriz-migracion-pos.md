@@ -17,6 +17,8 @@ La clasificación orienta la priorización del producto; no constituye por sí s
 
 ## 3. Matriz funcional
 
+**Revalidación dirigida de FUN-007:** sólo se encontró un artefacto de pantalla sin implementación transaccional propia; la decisión permanece `VALIDAR`.
+
 | ID | Módulo | Funcionalidad | Decisión | Prioridad | MVP Agroinsumos | Motivo | Dependencia/Bloqueo |
 |---|---|---|---|---|---|---|---|
 | FUN-001 | Acceso | Iniciar sesión | REDISEÑAR | P0 | SI | Acceso indispensable, alineado a identidad corporativa. | Identidad, usuarios y transición de perfiles. |
