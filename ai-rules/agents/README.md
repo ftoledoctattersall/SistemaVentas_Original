@@ -10,6 +10,8 @@ Un Agent no es una Rule, una Skill ni una fuente de requisitos.
 
 Utilizar un Agent cuando una responsabilidad pueda delegarse con alcance, entradas, procedimiento, validación y salida claramente definidos. No crear Agents para tareas triviales ni para anticipar necesidades futuras.
 
+Los Agents deben utilizarse selectivamente, según el riesgo real del cambio. Usar `backend-reviewer` para cambios backend, `frontend-reviewer` para cambios frontend, `security-reviewer` para cambios sensibles y `architecture-reviewer` para cambios estructurales o transversales. Un cambio puede requerir más de un reviewer cuando su alcance lo justifique; no ejecutar los cuatro por defecto.
+
 ## Relación con Rules
 
 Todo Agent debe cumplir las Core, Security y Engineering Rules aplicables. No puede omitirlas, debilitarlas, reemplazarlas, neutralizarlas ni redefinirlas.
