@@ -10,7 +10,7 @@ public sealed class VentaBorradorTests
     private static readonly DateTimeOffset Fecha = new(2026, 8, 16, 12, 0, 0, TimeSpan.Zero);
 
     [Fact]
-    public void Crear_ConDatosValidos_IniciaEnEstadoBorradorSinLineas()
+    public void Crear_LocalmenteSinDocumentoSap_IniciaEnEstadoBorradorSinLineas()
     {
         var borrador = CrearBorrador();
 

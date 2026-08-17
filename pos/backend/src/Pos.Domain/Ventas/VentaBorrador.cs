@@ -1,5 +1,9 @@
 namespace Pos.Domain.Ventas;
 
+/// <summary>
+/// Representa una venta en preparación local del POS. No requiere ni representa un documento SAP;
+/// la creación de documentos externos pertenece a la integración de EP-07.
+/// </summary>
 public sealed class VentaBorrador
 {
     private readonly List<VentaLinea> _lineas = [];
