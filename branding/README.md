@@ -6,4 +6,6 @@ EETT es la identidad corporativa inicial y Agroinsumos es la primera filial. La 
 
 Las futuras filiales se agregan bajo `branding/companies/`. Los componentes React no deben hardcodear valores empresariales.
 
+En el frontend, `resolveBrand(EmpresaActiva)` usa EETT como fallback y Agroinsumos como primer branding empresarial; nuevos brandings deben incorporarse sin modificar componentes funcionales.
+
 Los archivos de `logos-colores/` se mantienen como fuente original para conservar trazabilidad.
