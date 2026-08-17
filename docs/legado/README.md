@@ -1,8 +1,10 @@
-# Levantamiento funcional del sistema legado de Agroinsumos
+# Documentación funcional del sistema legado de Agroinsumos
 
 ## Objetivo
 
-Esta documentación resume qué hace el sistema de ventas legado de Agroinsumos y qué capacidades deben considerarse al diseñar el nuevo Punto de Venta corporativo. Está orientada a gerencia, usuarios de negocio, analistas y equipos técnicos sin conocimiento previo de la aplicación.
+Esta carpeta explica cómo funciona el sistema de ventas legado de Agroinsumos. Está orientada a gerencia, usuarios de negocio, analistas y equipos técnicos sin conocimiento previo de la aplicación.
+
+El punto de entrada recomendado es el [manual funcional](MANUAL-FUNCIONAL-SISTEMA-ACTUAL.md). La [presentación gerencial](PRESENTACION-GERENCIAL-SISTEMA-ACTUAL.md) resume el alcance y los riesgos para revisión ejecutiva. La documentación de migración y del nuevo POS se encuentra fuera de esta carpeta, en `docs/pos/`.
 
 ## Sistema inspeccionado
 
@@ -17,12 +19,14 @@ Aunque el sistema no es WinForms, conserva una interacción de tipo formulario: 
 
 Se inspeccionaron la solución y proyectos, páginas y navegación, eventos de servidor, JavaScript de negocio, clases de consulta, procedimientos almacenados referenciados, configuración, servicios web, SAP DI API, correo, PDF, impresión y visualización de documentos tributarios.
 
-Los hallazgos se organizan así:
+El inventario inicial se conserva como referencia del levantamiento:
 
 - [01-catalogo-funcional.md](01-catalogo-funcional.md): capacidades confirmadas y sus dependencias.
 - [02-flujos-funcionales.md](02-flujos-funcionales.md): procesos principales de punta a punta.
 - [03-integraciones.md](03-integraciones.md): sistemas externos, datos, documentos y comunicaciones.
 - [04-brechas-y-pendientes.md](04-brechas-y-pendientes.md): decisiones que requieren validación fuera del código.
+
+El detalle funcional consolidado se encuentra en [funcionalidades/](funcionalidades/). La matriz legado → POS se mantiene en `docs/pos/05-matriz-migracion-pos.md`.
 
 ## Cómo utilizar esta documentación
 
