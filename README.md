@@ -1,42 +1,45 @@
-# Sistema de Ventas y nuevo Punto de Venta
+# Sistema de Ventas y Punto de Venta
 
-Este repositorio reúne el sistema legado de referencia, la normativa de desarrollo y el nuevo Punto de Venta corporativo.
+Este repositorio reúne el sistema legado de referencia, la normativa transversal de desarrollo y el nuevo Punto de Venta corporativo.
 
 ## Estructura
 
-- `ventas/`: sistema de ventas legado, READ-ONLY durante el desarrollo normal.
-- `wssap/`: integrador legado, READ-ONLY durante el desarrollo normal.
-- `ai-rules/`: normativa obligatoria de desarrollo seguro; no es una dependencia runtime.
-- `pos/`: producto nuevo desarrollado desde cero y aislado del legado.
-- `docs/`: documentación operativa y arquitectónica transversal.
-
-## Gobernanza del desarrollo
-
-La separacion de estas piezas es deliberada: cada una cumple una responsabilidad distinta.
-
 ```text
-AGENTS.md
-   |-- ai-rules/          -> normativa tecnica y seguridad
-   |-- ACTIVE-SKILLS.md   -> skills activas del proyecto
-   |-- docs/pos/          -> arquitectura y reglas del POS
-   `-- branding/          -> identidad visual y assets
+/
+├── AGENTS.md
+├── ACTIVE-SKILLS.md
+├── AI-DEVELOPMENT-GUIDE.md
+├── ai-rules/
+├── branding/
+├── docs/
+├── pos/
+├── ventas/
+└── wssap/
 ```
 
-- `AGENTS.md`: punto de entrada en la raiz para agentes IA. Permanece aqui para facilitar el descubrimiento automatico y conecta con la normativa, las skills, la arquitectura y el branding del proyecto.
-- `ACTIVE-SKILLS.md`: manifiesto de skills activas del proyecto consumidor. Permanece en el **Consumer Project Root** por contrato de `ai-rules`; no debe inferirse ni sustituirse por manifests alternativos.
-- `ai-rules/`: normativa tecnica, de seguridad e ingenieria, ademas de skills y reviewers. Su autoridad principal es [`AI-INSTRUCTIONS.md`](ai-rules/AI-INSTRUCTIONS.md). Es normativa reutilizable y portable entre proyectos.
-- `branding/`: identidad visual normalizada, datos, assets y trazabilidad corporativa. No es unicamente documentacion para agentes IA: parte de sus assets es consumida por el frontend durante el build/runtime. La implementacion runtime permanece separada en `pos/frontend/pos-web/src/branding/`.
+- `AGENTS.md`: punto de entrada para agentes IA.
+- `ACTIVE-SKILLS.md`: manifiesto contractual de skills activas.
+- `AI-DEVELOPMENT-GUIDE.md`: guía breve para desarrolladores que trabajan con agentes IA.
+- `ai-rules/`: normativa técnica, seguridad, engineering, skills y reviewers.
+- `branding/`: identidad visual, datos y assets corporativos.
+- `docs/`: documentación transversal y específica de cada área.
+- `pos/`: implementación del nuevo Punto de Venta.
+- `ventas/` y `wssap/`: sistema de ventas e integrador legado de referencia.
 
-## Instrucciones para agentes
+La separación de estas piezas es deliberada: descubrimiento, configuración contractual, normativa, guía de trabajo e identidad visual tienen responsabilidades distintas.
 
-Antes de modificar el repositorio, leer [`AGENTS.md`](AGENTS.md). Ese punto de entrada dirige a [`ai-rules/AI-INSTRUCTIONS.md`](ai-rules/AI-INSTRUCTIONS.md) y al manifiesto de skills activas [`ACTIVE-SKILLS.md`](ACTIVE-SKILLS.md).
+## Documentación y gobernanza
+
+Antes de trabajar en el repositorio, consultar [`AGENTS.md`](AGENTS.md). Desde allí se accede a la normativa de [`ai-rules/`](ai-rules/), al manifiesto [`ACTIVE-SKILLS.md`](ACTIVE-SKILLS.md), a la guía [`AI-DEVELOPMENT-GUIDE.md`](AI-DEVELOPMENT-GUIDE.md) y a las referencias de arquitectura y branding.
+
+La documentación específica está organizada así:
+
+- [`pos/README.md`](pos/README.md): orientación del nuevo POS.
+- [`docs/pos/`](docs/pos/): arquitectura, desarrollo, configuración, setup y runbook del POS.
+- [`docs/pos/SETUP.md`](docs/pos/SETUP.md): preparación del entorno POS.
+- [`docs/pos/RUNBOOK.md`](docs/pos/RUNBOOK.md): ejecución y verificación del POS.
+- [`docs/legado/`](docs/legado/): documentación funcional y evidencia del sistema legado.
 
 ## Estado
 
-Nuevo POS — FASE 1A
-
-## Inicio
-
-- [Preparación del entorno](docs/SETUP.md)
-- [Ejecución y verificación](docs/RUNBOOK.md)
-- [Guía para solicitar trabajo a agentes IA](AI-DEVELOPMENT-GUIDE.md): explica cómo pedir cambios, correcciones y análisis dentro del proyecto.
+El nuevo POS se encuentra en FASE 1A. La documentación especializada mantiene el detalle técnico y funcional correspondiente a cada área.
