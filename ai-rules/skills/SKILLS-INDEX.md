@@ -12,4 +12,6 @@ La presencia de una skill en este índice sólo indica que está disponible. La 
 
 ## Catálogo
 
+- `backend/aspnet-core` — ASP.NET Core web and API specialization for pipelines, HTTP boundaries, dependency injection, configuration, integrations, and API safety.
+- `backend/dotnet` — General .NET and C# backend specialization for runtime behavior, dependency injection, configuration, integrations, observability, and testing.
 - `frontend/frontend-design` — Framework-agnostic interface design rules for observable states, action feedback, adaptable layouts, and basic interaction accessibility.
