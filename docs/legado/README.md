@@ -4,7 +4,7 @@
 
 Esta carpeta explica cómo funciona el sistema de ventas legado de Agroinsumos. Está orientada a gerencia, usuarios de negocio, analistas y equipos técnicos sin conocimiento previo de la aplicación.
 
-El punto de entrada recomendado es el [manual funcional](MANUAL-FUNCIONAL-SISTEMA-ACTUAL.md). La [presentación gerencial](PRESENTACION-GERENCIAL-SISTEMA-ACTUAL.md) resume el alcance y los riesgos para revisión ejecutiva. La documentación de migración y del nuevo POS se encuentra fuera de esta carpeta, en `docs/pos/`.
+El punto de entrada recomendado es el [manual funcional](MANUAL-FUNCIONAL-SISTEMA-ACTUAL.md). La [presentación gerencial](PRESENTACION-GERENCIAL-SISTEMA-ACTUAL.md) resume el alcance y los riesgos para revisión ejecutiva. La documentación de migración y del nuevo POS se encuentra fuera de esta carpeta, en [`docs/pos/`](../pos/).
 
 ## Sistema inspeccionado
 
@@ -26,7 +26,7 @@ El inventario inicial se conserva como referencia del levantamiento:
 - [03-integraciones.md](03-integraciones.md): sistemas externos, datos, documentos y comunicaciones.
 - [04-brechas-y-pendientes.md](04-brechas-y-pendientes.md): decisiones que requieren validación fuera del código.
 
-El detalle funcional consolidado se encuentra en [funcionalidades/](funcionalidades/). La matriz legado → POS se mantiene en `docs/pos/05-matriz-migracion-pos.md`.
+El detalle funcional consolidado se encuentra en [funcionalidades/](funcionalidades/). La matriz legado → POS se mantiene en [`docs/pos/05-matriz-migracion-pos.md`](../pos/05-matriz-migracion-pos.md).
 
 ## Cómo utilizar esta documentación
 

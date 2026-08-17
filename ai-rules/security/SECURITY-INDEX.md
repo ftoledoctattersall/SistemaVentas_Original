@@ -1,5 +1,18 @@
 # Security Index
 
+## Enlaces directos
+
+- [A01 Broken Access Control](A01-Broken-Access-Control.md)
+- [A02 Cryptographic Failures](A02-Cryptographic-Failures.md)
+- [A03 Injection](A03-Injection.md)
+- [A04 Insecure Design](A04-Insecure-Design.md)
+- [A05 Security Misconfiguration](A05-Security-Misconfiguration.md)
+- [A06 Vulnerable and Outdated Components](A06-Vulnerable-and-Outdated-Components.md)
+- [A07 Identification and Authentication Failures](A07-Identification-and-Authentication-Failures.md)
+- [A08 Software and Data Integrity Failures](A08-Software-and-Data-Integrity-Failures.md)
+- [A09 Security Logging and Monitoring Failures](A09-Security-Logging-and-Monitoring-Failures.md)
+- [A10 Server-Side Request Forgery](A10-Server-Side-Request-Forgery.md)
+
 ## Objetivo
 
 Este documento permite identificar rápidamente qué documentos del módulo **Security** deben consultarse antes de implementar una funcionalidad.

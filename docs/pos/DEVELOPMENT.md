@@ -12,10 +12,10 @@ Todo nuevo código productivo debe vivir bajo `pos/`.
 
 Antes de cada fase:
 
-1. inspeccionar las reglas relevantes;
+1. inspeccionar las reglas relevantes en [`ai-rules/`](../../ai-rules/);
 2. declarar `ACTIVE AI-RULES`;
 3. aplicar sólo las reglas relacionadas con el alcance;
-4. mantener `ai-rules/` sin modificaciones.
+4. mantener [`ai-rules/`](../../ai-rules/) sin modificaciones.
 
 ## Quality gates actuales
 

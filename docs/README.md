@@ -8,4 +8,4 @@ Este directorio separa la documentación del sistema legado, del nuevo POS y del
 - [Documentación del nuevo POS](pos/)
 - [Documentación de transición legado → POS](pos/05-matriz-migracion-pos.md)
 
-La documentación técnica y operativa del nuevo POS se encuentra dentro de `docs/pos/`.
+La documentación técnica y operativa del nuevo POS se encuentra dentro de [`docs/pos/`](pos/).

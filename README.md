@@ -40,6 +40,20 @@ La separación de estas piezas es deliberada: descubrimiento, configuración con
 
 Antes de trabajar en el repositorio, consultar [`AGENTS.md`](AGENTS.md). Desde allí se accede a la normativa de [`ai-rules/`](ai-rules/), al manifiesto [`ACTIVE-SKILLS.md`](ACTIVE-SKILLS.md), a la guía [`AI-DEVELOPMENT-GUIDE.md`](AI-DEVELOPMENT-GUIDE.md) y a las referencias de arquitectura y branding.
 
+### Puntos de navegación
+
+- [`AGENTS.md`](./AGENTS.md)
+- [`ACTIVE-SKILLS.md`](./ACTIVE-SKILLS.md)
+- [`AI-DEVELOPMENT-GUIDE.md`](./AI-DEVELOPMENT-GUIDE.md)
+- [`ai-rules/AI-INSTRUCTIONS.md`](./ai-rules/AI-INSTRUCTIONS.md)
+- [`ai-rules/`](./ai-rules/)
+- [`branding/`](./branding/)
+- [`docs/pos/`](./docs/pos/)
+- [`docs/legado/`](./docs/legado/)
+- [`pos/README.md`](./pos/README.md)
+- [`docs/pos/SETUP.md`](./docs/pos/SETUP.md)
+- [`docs/pos/RUNBOOK.md`](./docs/pos/RUNBOOK.md)
+
 La documentación específica está organizada así:
 
 - [`pos/README.md`](pos/README.md): orientación del nuevo POS.

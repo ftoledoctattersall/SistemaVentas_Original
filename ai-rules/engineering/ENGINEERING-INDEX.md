@@ -1,5 +1,19 @@
 # Engineering Index
 
+## Enlaces directos
+
+- [Architecture.md](Architecture.md)
+- [API.md](API.md)
+- [Database.md](Database.md)
+- [Validation.md](Validation.md)
+- [Error-Handling.md](Error-Handling.md)
+- [Logging.md](Logging.md)
+- [Testing.md](Testing.md)
+- [Dependencies.md](Dependencies.md)
+- [Authentication.md](Authentication.md)
+- [Authorization.md](Authorization.md)
+- [Naming.md](Naming.md)
+
 ## Objetivo
 
 Este documento permite identificar rápidamente qué estándares del módulo **Engineering** deben consultarse antes de implementar una funcionalidad.

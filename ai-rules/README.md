@@ -1,5 +1,18 @@
 # AI Rules
 
+## Navegación
+
+- [AI-INSTRUCTIONS.md](AI-INSTRUCTIONS.md)
+- [AGENTS.md](AGENTS.md)
+- [Engineering](engineering/README.md)
+- [Engineering Index](engineering/ENGINEERING-INDEX.md)
+- [Security](security/README.md)
+- [Security Index](security/SECURITY-INDEX.md)
+- [Skills](skills/README.md)
+- [Skills Index](skills/SKILLS-INDEX.md)
+- [Agents](agents/README.md)
+- [Templates](templates/README.md)
+
 > **AI Rules** es un estándar de ingeniería diseñado para que asistentes de inteligencia artificial desarrollen software de forma consistente, segura y mantenible.
 
 Su propósito es proporcionar un conjunto de reglas reutilizables que permitan a herramientas como **Codex**, **Claude Code**, **Cursor**, **GitHub Copilot**, **ChatGPT** y otros asistentes de desarrollo generar soluciones alineadas con buenas prácticas de ingeniería y seguridad.
